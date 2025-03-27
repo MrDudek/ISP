@@ -29,106 +29,122 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            label4 = new Label();
-            textBox2 = new TextBox();
-            label3 = new Label();
-            button1 = new Button();
+            checkBox_showpass = new CheckBox();
+            button_login = new Button();
+            username = new Label();
+            login_pass = new TextBox();
+            password = new Label();
+            login_username = new TextBox();
+            nazwa = new Label();
+            exit = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonFace;
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(checkBox_showpass);
+            panel1.Controls.Add(button_login);
+            panel1.Controls.Add(username);
+            panel1.Controls.Add(login_pass);
+            panel1.Controls.Add(password);
+            panel1.Controls.Add(login_username);
+            panel1.Controls.Add(nazwa);
+            panel1.Controls.Add(exit);
+            panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(-1, -2);
             panel1.Name = "panel1";
             panel1.Size = new Size(477, 581);
             panel1.TabIndex = 0;
             // 
-            // label1
+            // checkBox_showpass
             // 
-            label1.AutoSize = true;
-            label1.Cursor = Cursors.Hand;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            label1.Location = new Point(445, 11);
-            label1.Name = "label1";
-            label1.Size = new Size(19, 20);
-            label1.TabIndex = 0;
-            label1.Text = "X";
-            label1.Click += label1_Click;
+            checkBox_showpass.AutoSize = true;
+            checkBox_showpass.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            checkBox_showpass.Location = new Point(27, 311);
+            checkBox_showpass.Name = "checkBox_showpass";
+            checkBox_showpass.Size = new Size(105, 24);
+            checkBox_showpass.TabIndex = 10;
+            checkBox_showpass.Text = "Pokaż hasło";
+            checkBox_showpass.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // button_login
             // 
-            label2.AutoSize = true;
-            label2.Cursor = Cursors.Hand;
-            label2.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, 69);
-            label2.Name = "label2";
-            label2.Size = new Size(466, 24);
-            label2.TabIndex = 1;
-            label2.Text = "Witamy w systemie zarządzania usługami ISP";
-            label2.Click += label2_Click_1;
+            button_login.BackColor = SystemColors.Desktop;
+            button_login.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            button_login.ForeColor = SystemColors.Control;
+            button_login.Location = new Point(151, 343);
+            button_login.Name = "button_login";
+            button_login.Size = new Size(152, 44);
+            button_login.TabIndex = 7;
+            button_login.Text = "Logowanie";
+            button_login.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // username
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox1.Location = new Point(27, 203);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(427, 29);
-            textBox1.TabIndex = 3;
+            username.AutoSize = true;
+            username.Cursor = Cursors.Hand;
+            username.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            username.Location = new Point(27, 178);
+            username.Name = "username";
+            username.Size = new Size(172, 22);
+            username.TabIndex = 6;
+            username.Text = "Nazwa Użytkownika";
+            username.Click += label3_Click;
             // 
-            // label4
+            // login_pass
             // 
-            label4.AutoSize = true;
-            label4.Cursor = Cursors.Hand;
-            label4.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label4.Location = new Point(27, 256);
-            label4.Name = "label4";
-            label4.Size = new Size(58, 22);
-            label4.TabIndex = 4;
-            label4.Text = "Hasło";
-            label4.Click += label4_Click;
+            login_pass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            login_pass.Location = new Point(27, 276);
+            login_pass.Name = "login_pass";
+            login_pass.Size = new Size(427, 29);
+            login_pass.TabIndex = 5;
             // 
-            // textBox2
+            // password
             // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox2.Location = new Point(27, 276);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(427, 29);
-            textBox2.TabIndex = 5;
+            password.AutoSize = true;
+            password.Cursor = Cursors.Hand;
+            password.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            password.Location = new Point(27, 256);
+            password.Name = "password";
+            password.Size = new Size(58, 22);
+            password.TabIndex = 4;
+            password.Text = "Hasło";
+            password.Click += label4_Click;
             // 
-            // label3
+            // login_username
             // 
-            label3.AutoSize = true;
-            label3.Cursor = Cursors.Hand;
-            label3.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            label3.Location = new Point(27, 178);
-            label3.Name = "label3";
-            label3.Size = new Size(172, 22);
-            label3.TabIndex = 6;
-            label3.Text = "Nazwa Użytkownika";
-            label3.Click += label3_Click;
+            login_username.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            login_username.Location = new Point(27, 203);
+            login_username.Name = "login_username";
+            login_username.Size = new Size(427, 29);
+            login_username.TabIndex = 3;
+            login_username.TextChanged += textBox1_TextChanged;
             // 
-            // button1
+            // nazwa
             // 
-            button1.BackColor = SystemColors.Desktop;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(159, 322);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 44);
-            button1.TabIndex = 7;
-            button1.Text = "Logowanie";
-            button1.UseVisualStyleBackColor = false;
+            nazwa.AutoSize = true;
+            nazwa.BackColor = Color.Transparent;
+            nazwa.Cursor = Cursors.Hand;
+            nazwa.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nazwa.Location = new Point(3, 69);
+            nazwa.Name = "nazwa";
+            nazwa.Size = new Size(466, 24);
+            nazwa.TabIndex = 1;
+            nazwa.Text = "Witamy w systemie zarządzania usługami ISP";
+            nazwa.Click += label2_Click_1;
+            // 
+            // exit
+            // 
+            exit.AutoSize = true;
+            exit.Cursor = Cursors.Hand;
+            exit.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            exit.Location = new Point(445, 11);
+            exit.Name = "exit";
+            exit.Size = new Size(19, 20);
+            exit.TabIndex = 0;
+            exit.Text = "X";
+            exit.Click += label1_Click;
             // 
             // Form1
             // 
@@ -147,12 +163,13 @@
         #endregion
 
         private Panel panel1;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox2;
-        private Label label4;
-        private TextBox textBox1;
-        private Label label3;
-        private Button button1;
+        private Label exit;
+        private Label nazwa;
+        private TextBox login_pass;
+        private Label password;
+        private TextBox login_username;
+        private Label username;
+        private Button button_login;
+        private CheckBox checkBox_showpass;
     }
 }
