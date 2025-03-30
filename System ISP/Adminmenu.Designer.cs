@@ -35,16 +35,27 @@
             glowna_nazwa = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            Rejestracja = new Button();
+            refresh = new PictureBox();
             logout = new PictureBox();
             Ksiegowy = new Button();
             Serwisant = new Button();
             panele = new Label();
             Konsultant = new Button();
             toolTip1 = new ToolTip(components);
+            panelL = new Panel();
+            panelsrodkowy = new Panel();
+            panelP = new Panel();
+            tabelka = new Panel();
+            dataGridView1 = new DataGridView();
+            listauserow = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)refresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
+            tabelka.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -103,6 +114,8 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
+            panel3.Controls.Add(Rejestracja);
+            panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
             panel3.Controls.Add(Ksiegowy);
             panel3.Controls.Add(Serwisant);
@@ -114,6 +127,31 @@
             panel3.Size = new Size(316, 606);
             panel3.TabIndex = 3;
             panel3.Paint += panel3_Paint;
+            // 
+            // Rejestracja
+            // 
+            Rejestracja.BackColor = Color.DarkTurquoise;
+            Rejestracja.BackgroundImageLayout = ImageLayout.None;
+            Rejestracja.FlatStyle = FlatStyle.Flat;
+            Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
+            Rejestracja.Location = new Point(12, 457);
+            Rejestracja.Name = "Rejestracja";
+            Rejestracja.Size = new Size(297, 59);
+            Rejestracja.TabIndex = 5;
+            Rejestracja.Text = "Rejestracja nowych uzytkownikow";
+            Rejestracja.UseVisualStyleBackColor = false;
+            Rejestracja.Click += Rejestracja_Click;
+            // 
+            // refresh
+            // 
+            refresh.BackgroundImage = Properties.Resources.Refresh_icon;
+            refresh.BackgroundImageLayout = ImageLayout.Stretch;
+            refresh.Location = new Point(256, 544);
+            refresh.Name = "refresh";
+            refresh.Size = new Size(57, 50);
+            refresh.TabIndex = 2;
+            refresh.TabStop = false;
+            refresh.Click += refresh_Click;
             // 
             // logout
             // 
@@ -183,11 +221,64 @@
             // 
             toolTip1.Popup += toolTip1_Popup;
             // 
+            // panelL
+            // 
+            panelL.Location = new Point(343, 141);
+            panelL.Name = "panelL";
+            panelL.Size = new Size(253, 190);
+            panelL.TabIndex = 4;
+            // 
+            // panelsrodkowy
+            // 
+            panelsrodkowy.Location = new Point(619, 141);
+            panelsrodkowy.Name = "panelsrodkowy";
+            panelsrodkowy.Size = new Size(253, 190);
+            panelsrodkowy.TabIndex = 5;
+            // 
+            // panelP
+            // 
+            panelP.Location = new Point(914, 141);
+            panelP.Name = "panelP";
+            panelP.Size = new Size(253, 190);
+            panelP.TabIndex = 5;
+            // 
+            // tabelka
+            // 
+            tabelka.Controls.Add(dataGridView1);
+            tabelka.Controls.Add(listauserow);
+            tabelka.Location = new Point(322, 355);
+            tabelka.Name = "tabelka";
+            tabelka.Size = new Size(930, 362);
+            tabelka.TabIndex = 5;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(11, 45);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(913, 313);
+            dataGridView1.TabIndex = 1;
+            // 
+            // listauserow
+            // 
+            listauserow.AutoSize = true;
+            listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            listauserow.Location = new Point(15, 15);
+            listauserow.Name = "listauserow";
+            listauserow.Size = new Size(192, 25);
+            listauserow.TabIndex = 0;
+            listauserow.Text = "Lista Użytkownikow";
+            listauserow.Click += label1_Click_1;
+            // 
             // Adminmenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 729);
+            Controls.Add(tabelka);
+            Controls.Add(panelP);
+            Controls.Add(panelsrodkowy);
+            Controls.Add(panelL);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -200,7 +291,11 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)refresh).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
+            tabelka.ResumeLayout(false);
+            tabelka.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -219,5 +314,14 @@
         private PictureBox logout;
         private ToolTip toolTip1;
         private PictureBox pictureBox1;
+        private Panel panelL;
+        private Panel panelsrodkowy;
+        private Panel panelP;
+        private Panel tabelka;
+        private Label listauserow;
+        private DataGridView dataGridView1;
+        private PictureBox refresh;
+        private Button button1;
+        private Button Rejestracja;
     }
 }

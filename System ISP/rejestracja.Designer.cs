@@ -1,14 +1,14 @@
 ﻿namespace System_ISP
 {
-    partial class Form1
+    partial class rejestracja
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,12 +23,14 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            comboBox1 = new ComboBox();
+            opis = new Label();
             checkBox_showpass = new CheckBox();
             button_login = new Button();
             username = new Label();
@@ -44,6 +46,8 @@
             // 
             panel1.BackColor = SystemColors.ButtonFace;
             panel1.BackgroundImage = Properties.Resources.tło;
+            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(opis);
             panel1.Controls.Add(checkBox_showpass);
             panel1.Controls.Add(button_login);
             panel1.Controls.Add(username);
@@ -53,11 +57,31 @@
             panel1.Controls.Add(nazwa);
             panel1.Controls.Add(exit);
             panel1.ForeColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(-1, -2);
+            panel1.Location = new Point(-2, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(477, 581);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            panel1.Size = new Size(487, 591);
+            panel1.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "admin", "konsultant", "user", "serwisant", "ksiegowy" });
+            comboBox1.Location = new Point(27, 367);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 12;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // opis
+            // 
+            opis.AutoSize = true;
+            opis.BackColor = Color.Transparent;
+            opis.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            opis.Location = new Point(27, 108);
+            opis.Name = "opis";
+            opis.Size = new Size(261, 25);
+            opis.TabIndex = 11;
+            opis.Text = "Wprowadz podstawowe dane";
             // 
             // checkBox_showpass
             // 
@@ -70,24 +94,24 @@
             checkBox_showpass.TabIndex = 10;
             checkBox_showpass.Text = "Pokaż hasło";
             checkBox_showpass.UseVisualStyleBackColor = true;
-            checkBox_showpass.CheckedChanged += checkBox_showpass_CheckedChanged;
             // 
             // button_login
             // 
             button_login.BackColor = SystemColors.Desktop;
             button_login.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             button_login.ForeColor = SystemColors.Control;
-            button_login.Location = new Point(151, 349);
+            button_login.Location = new Point(152, 429);
             button_login.Name = "button_login";
             button_login.Size = new Size(152, 44);
             button_login.TabIndex = 7;
-            button_login.Text = "Logowanie";
+            button_login.Text = "Dodaj";
             button_login.UseVisualStyleBackColor = false;
             button_login.Click += button_login_Click;
             // 
             // username
             // 
             username.AutoSize = true;
+            username.BackColor = Color.Transparent;
             username.Cursor = Cursors.Hand;
             username.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             username.ForeColor = SystemColors.ActiveCaptionText;
@@ -96,10 +120,10 @@
             username.Size = new Size(172, 22);
             username.TabIndex = 6;
             username.Text = "Nazwa Użytkownika";
-            username.Click += label3_Click;
             // 
             // login_pass
             // 
+            login_pass.BackColor = SystemColors.Control;
             login_pass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
             login_pass.Location = new Point(27, 281);
             login_pass.Name = "login_pass";
@@ -110,6 +134,7 @@
             // password
             // 
             password.AutoSize = true;
+            password.BackColor = Color.Transparent;
             password.Cursor = Cursors.Hand;
             password.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
             password.Location = new Point(27, 247);
@@ -117,7 +142,6 @@
             password.Size = new Size(58, 22);
             password.TabIndex = 4;
             password.Text = "Hasło";
-            password.Click += label4_Click;
             // 
             // login_username
             // 
@@ -126,7 +150,6 @@
             login_username.Name = "login_username";
             login_username.Size = new Size(427, 29);
             login_username.TabIndex = 3;
-            login_username.TextChanged += textBox1_TextChanged;
             // 
             // nazwa
             // 
@@ -136,10 +159,10 @@
             nazwa.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             nazwa.Location = new Point(3, 69);
             nazwa.Name = "nazwa";
-            nazwa.Size = new Size(466, 24);
+            nazwa.Size = new Size(454, 24);
             nazwa.TabIndex = 1;
-            nazwa.Text = "Witamy w systemie zarządzania usługami ISP";
-            nazwa.Click += label2_Click_1;
+            nazwa.Text = "Witaj administatorze w kreatorze Rejestracji";
+            nazwa.Click += nazwa_Click;
             // 
             // exit
             // 
@@ -151,17 +174,18 @@
             exit.Size = new Size(19, 20);
             exit.TabIndex = 0;
             exit.Text = "X";
-            exit.Click += label1_Click;
+            exit.Click += exit_Click;
             // 
-            // Form1
+            // rejestracja
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(475, 577);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(477, 581);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
-            Text = "Form1";
+            Name = "rejestracja";
+            Text = "rejestracja";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -170,13 +194,15 @@
         #endregion
 
         private Panel panel1;
-        private Label exit;
-        private Label nazwa;
+        private CheckBox checkBox_showpass;
+        private Button button_login;
+        private Label username;
         private TextBox login_pass;
         private Label password;
         private TextBox login_username;
-        private Label username;
-        private Button button_login;
-        private CheckBox checkBox_showpass;
+        private Label nazwa;
+        private Label exit;
+        private Label opis;
+        private ComboBox comboBox1;
     }
 }

@@ -88,7 +88,7 @@ namespace System_ISP
                                     new Ksiegowy().Show();
                                     break;
                                 case "user":
-                                    new user().Show(); 
+                                    new user().Show();
                                     break;
                                 default:
                                     MessageBox.Show("🔒 Rola nieznana. Brak dostępu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -121,6 +121,11 @@ namespace System_ISP
             {
                 login_pass.UseSystemPasswordChar = true;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

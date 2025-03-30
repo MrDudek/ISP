@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace System_ISP
         {
             InitializeComponent();
             EnableDrag(panel1);
+            WczytajUzytkownikow();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -73,12 +75,51 @@ namespace System_ISP
 
         private void button4_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void WczytajUzytkownikow()
+        {
+            string connectionString = "Server=194.92.64.24,12145;Database=IOpsk;User Id=mirek;Password=ZAQ!2wsx;TrustServerCertificate=True;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM dbo.Klient";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Błąd ładowania użytkowników:\n" + ex.Message);
+                }
+            }
+        }
+
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            WczytajUzytkownikow();
+        }
+
+        private void Rejestracja_Click(object sender, EventArgs e)
+        {
+            rejestracja rejestracjaOkno = new rejestracja();
+            rejestracjaOkno.Show();
         }
     }
 }
