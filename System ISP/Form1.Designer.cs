@@ -43,6 +43,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonFace;
+            panel1.BackgroundImage = Properties.Resources.tło;
             panel1.Controls.Add(checkBox_showpass);
             panel1.Controls.Add(button_login);
             panel1.Controls.Add(username);
@@ -61,9 +62,10 @@
             // 
             checkBox_showpass.AutoSize = true;
             checkBox_showpass.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            checkBox_showpass.Location = new Point(27, 311);
+            checkBox_showpass.Location = new Point(27, 316);
             checkBox_showpass.Name = "checkBox_showpass";
-            checkBox_showpass.Size = new Size(105, 24);
+            checkBox_showpass.Padding = new Padding(1);
+            checkBox_showpass.Size = new Size(107, 26);
             checkBox_showpass.TabIndex = 10;
             checkBox_showpass.Text = "Pokaż hasło";
             checkBox_showpass.UseVisualStyleBackColor = true;
@@ -74,7 +76,7 @@
             button_login.BackColor = SystemColors.Desktop;
             button_login.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
             button_login.ForeColor = SystemColors.Control;
-            button_login.Location = new Point(151, 343);
+            button_login.Location = new Point(151, 349);
             button_login.Name = "button_login";
             button_login.Size = new Size(152, 44);
             button_login.TabIndex = 7;
@@ -87,7 +89,8 @@
             username.AutoSize = true;
             username.Cursor = Cursors.Hand;
             username.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            username.Location = new Point(27, 178);
+            username.ForeColor = SystemColors.ActiveCaptionText;
+            username.Location = new Point(27, 168);
             username.Name = "username";
             username.Size = new Size(172, 22);
             username.TabIndex = 6;
@@ -108,7 +111,7 @@
             password.AutoSize = true;
             password.Cursor = Cursors.Hand;
             password.Font = new Font("Arial", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            password.Location = new Point(27, 256);
+            password.Location = new Point(27, 247);
             password.Name = "password";
             password.Size = new Size(58, 22);
             password.TabIndex = 4;

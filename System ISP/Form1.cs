@@ -1,12 +1,13 @@
 ﻿using System.Data.SqlClient;
 namespace System_ISP
 {
-    public partial class Form1 : Form
+    public partial class Form1 : BaseForm
     {
         public Form1()
         {
             InitializeComponent();
             login_pass.UseSystemPasswordChar = true;
+            EnableDrag(panel1);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -85,6 +86,9 @@ namespace System_ISP
                                     break;
                                 case "ksiegowy":
                                     new Ksiegowy().Show();
+                                    break;
+                                case "user":
+                                    new user().Show(); 
                                     break;
                                 default:
                                     MessageBox.Show("🔒 Rola nieznana. Brak dostępu.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Warning);

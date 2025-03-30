@@ -28,23 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             data = new DateTimePicker();
             glowna_nazwa = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
-            Home = new Button();
+            logout = new PictureBox();
             Ksiegowy = new Button();
             Serwisant = new Button();
             panele = new Label();
             Konsultant = new Button();
+            toolTip1 = new ToolTip(components);
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(data);
             panel1.Controls.Add(glowna_nazwa);
             panel1.Cursor = Cursors.Hand;
@@ -54,6 +60,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1264, 123);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.exit;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(1216, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(26, 38);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // data
             // 
@@ -84,7 +103,7 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
-            panel3.Controls.Add(Home);
+            panel3.Controls.Add(logout);
             panel3.Controls.Add(Ksiegowy);
             panel3.Controls.Add(Serwisant);
             panel3.Controls.Add(panele);
@@ -94,19 +113,21 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(316, 606);
             panel3.TabIndex = 3;
+            panel3.Paint += panel3_Paint;
             // 
-            // Home
+            // logout
             // 
-            Home.BackColor = Color.DarkTurquoise;
-            Home.BackgroundImageLayout = ImageLayout.None;
-            Home.FlatStyle = FlatStyle.Flat;
-            Home.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Home.Location = new Point(64, 91);
-            Home.Name = "Home";
-            Home.Size = new Size(194, 59);
-            Home.TabIndex = 4;
-            Home.Text = "Strona Główna";
-            Home.UseVisualStyleBackColor = false;
+            logout.BackColor = Color.Transparent;
+            logout.BackgroundImage = Properties.Resources.logout3;
+            logout.BackgroundImageLayout = ImageLayout.Stretch;
+            logout.Cursor = Cursors.Hand;
+            logout.Location = new Point(12, 544);
+            logout.Name = "logout";
+            logout.Size = new Size(51, 50);
+            logout.TabIndex = 4;
+            logout.TabStop = false;
+            toolTip1.SetToolTip(logout, "Wyloguj z systemu");
+            logout.Click += logout_Click;
             // 
             // Ksiegowy
             // 
@@ -114,7 +135,7 @@
             Ksiegowy.BackgroundImageLayout = ImageLayout.None;
             Ksiegowy.FlatStyle = FlatStyle.Flat;
             Ksiegowy.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Ksiegowy.Location = new Point(64, 401);
+            Ksiegowy.Location = new Point(64, 268);
             Ksiegowy.Name = "Ksiegowy";
             Ksiegowy.Size = new Size(194, 59);
             Ksiegowy.TabIndex = 3;
@@ -128,7 +149,7 @@
             Serwisant.BackgroundImageLayout = ImageLayout.None;
             Serwisant.FlatStyle = FlatStyle.Flat;
             Serwisant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Serwisant.Location = new Point(64, 290);
+            Serwisant.Location = new Point(64, 168);
             Serwisant.Name = "Serwisant";
             Serwisant.Size = new Size(194, 59);
             Serwisant.TabIndex = 2;
@@ -151,12 +172,16 @@
             Konsultant.BackgroundImageLayout = ImageLayout.None;
             Konsultant.FlatStyle = FlatStyle.Flat;
             Konsultant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Konsultant.Location = new Point(64, 186);
+            Konsultant.Location = new Point(64, 76);
             Konsultant.Name = "Konsultant";
             Konsultant.Size = new Size(194, 59);
             Konsultant.TabIndex = 0;
             Konsultant.Text = "Konsultant";
             Konsultant.UseVisualStyleBackColor = false;
+            // 
+            // toolTip1
+            // 
+            toolTip1.Popup += toolTip1_Popup;
             // 
             // Adminmenu
             // 
@@ -172,8 +197,10 @@
             Load += Adminmenu_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)logout).EndInit();
             ResumeLayout(false);
         }
 
@@ -187,8 +214,10 @@
         private Label panele;
         private Button Konsultant;
         private Button Admin;
-        private Button Home;
         private Button Ksiegowy;
         private Button Serwisant;
+        private PictureBox logout;
+        private ToolTip toolTip1;
+        private PictureBox pictureBox1;
     }
 }
