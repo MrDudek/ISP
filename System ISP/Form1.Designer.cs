@@ -67,6 +67,7 @@
             checkBox_showpass.TabIndex = 10;
             checkBox_showpass.Text = "Pokaż hasło";
             checkBox_showpass.UseVisualStyleBackColor = true;
+            checkBox_showpass.CheckedChanged += checkBox_showpass_CheckedChanged;
             // 
             // button_login
             // 
@@ -79,6 +80,7 @@
             button_login.TabIndex = 7;
             button_login.Text = "Logowanie";
             button_login.UseVisualStyleBackColor = false;
+            button_login.Click += button_login_Click;
             // 
             // username
             // 
@@ -95,10 +97,11 @@
             // login_pass
             // 
             login_pass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            login_pass.Location = new Point(27, 276);
+            login_pass.Location = new Point(27, 281);
             login_pass.Name = "login_pass";
             login_pass.Size = new Size(427, 29);
             login_pass.TabIndex = 5;
+            login_pass.TextChanged += login_pass_TextChanged;
             // 
             // password
             // 

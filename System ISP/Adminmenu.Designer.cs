@@ -101,7 +101,7 @@
             Home.BackgroundImageLayout = ImageLayout.None;
             Home.FlatStyle = FlatStyle.Flat;
             Home.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Home.Location = new Point(64, 68);
+            Home.Location = new Point(64, 91);
             Home.Name = "Home";
             Home.Size = new Size(194, 59);
             Home.TabIndex = 4;
