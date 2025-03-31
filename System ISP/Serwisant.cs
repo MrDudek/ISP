@@ -22,5 +22,20 @@ namespace System_ISP
         {
 
         }
+
+        public void rozwiazZgloszenie()
+        {
+
+        }
+
+        public void utworzKlienta()
+        {
+
+        }
+
+        public void historiaZgloszen()
+        {
+
+        }
     }
 }

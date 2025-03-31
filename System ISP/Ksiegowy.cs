@@ -16,5 +16,21 @@ namespace System_ISP
         {
             InitializeComponent();
         }
+
+        public void generujFaktury()
+        {
+
+        }
+
+        public void raportFinansowy()
+        {
+
+        }
+
+        public void przypomnieniaONaleznosciach()
+        {
+
+        }
+
     }
 }

@@ -50,7 +50,7 @@ namespace System_ISP
             string username = login_username.Text.Trim();
             string password = login_pass.Text.Trim();
 
-            string connectionString = "Server=194.92.64.24,12145;Database=IOpsk;User Id=mirek;Password=ZAQ!2wsx;TrustServerCertificate=False;";
+            string connectionString = "Server=192.168.100.2,1433;Database=IOpsk;User Id=mirek;Password=ZAQ!2wsx;TrustServerCertificate=False;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

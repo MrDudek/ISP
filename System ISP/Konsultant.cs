@@ -16,5 +16,15 @@ namespace System_ISP
         {
             InitializeComponent();
         }
+
+        public void utworzUmowe()
+        {
+
+        }
+
+        public void utworzRezygnacje()
+        {
+
+        }
     }
 }
