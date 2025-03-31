@@ -1,0 +1,374 @@
+﻿namespace System_ISP
+{
+    partial class Adminmenu
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            data = new DateTimePicker();
+            glowna_nazwa = new Label();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            usuwanieuzytkownikow = new Button();
+            Rejestracja = new Button();
+            refresh = new PictureBox();
+            logout = new PictureBox();
+            Ksiegowy = new Button();
+            Serwisant = new Button();
+            panele = new Label();
+            Konsultant = new Button();
+            toolTip1 = new ToolTip(components);
+            panelL = new Panel();
+            panelsrodkowy = new Panel();
+            panelP = new Panel();
+            tabelka = new Panel();
+            listapracownikowtabela = new DataGridView();
+            listapracownikow = new Label();
+            dataGridView1 = new DataGridView();
+            listauserow = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)refresh).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
+            tabelka.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)listapracownikowtabela).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(data);
+            panel1.Controls.Add(glowna_nazwa);
+            panel1.Cursor = Cursors.Hand;
+            panel1.Dock = DockStyle.Top;
+            panel1.ForeColor = SystemColors.ControlText;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1264, 123);
+            panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImage = Properties.Resources.exit;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(1216, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(26, 38);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
+            // data
+            // 
+            data.Location = new Point(12, 16);
+            data.Name = "data";
+            data.Size = new Size(200, 23);
+            data.TabIndex = 4;
+            data.ValueChanged += data_ValueChanged;
+            // 
+            // glowna_nazwa
+            // 
+            glowna_nazwa.AutoSize = true;
+            glowna_nazwa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            glowna_nazwa.Location = new Point(349, 17);
+            glowna_nazwa.Name = "glowna_nazwa";
+            glowna_nazwa.Size = new Size(332, 21);
+            glowna_nazwa.TabIndex = 1;
+            glowna_nazwa.Text = "Witaj Administratorze w swoim królestwie";
+            glowna_nazwa.Click += label1_Click;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(349, 129);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(8, 8);
+            panel2.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.GradientActiveCaption;
+            panel3.Controls.Add(usuwanieuzytkownikow);
+            panel3.Controls.Add(Rejestracja);
+            panel3.Controls.Add(refresh);
+            panel3.Controls.Add(logout);
+            panel3.Controls.Add(Ksiegowy);
+            panel3.Controls.Add(Serwisant);
+            panel3.Controls.Add(panele);
+            panel3.Controls.Add(Konsultant);
+            panel3.Dock = DockStyle.Left;
+            panel3.Location = new Point(0, 123);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(316, 606);
+            panel3.TabIndex = 3;
+            panel3.Paint += panel3_Paint;
+            // 
+            // usuwanieuzytkownikow
+            // 
+            usuwanieuzytkownikow.BackColor = Color.DarkTurquoise;
+            usuwanieuzytkownikow.BackgroundImageLayout = ImageLayout.None;
+            usuwanieuzytkownikow.FlatStyle = FlatStyle.Flat;
+            usuwanieuzytkownikow.Font = new Font("Arial Black", 10F, FontStyle.Bold);
+            usuwanieuzytkownikow.Location = new Point(12, 441);
+            usuwanieuzytkownikow.Name = "usuwanieuzytkownikow";
+            usuwanieuzytkownikow.Size = new Size(297, 59);
+            usuwanieuzytkownikow.TabIndex = 6;
+            usuwanieuzytkownikow.Text = "Usuwanie Użytkowników";
+            usuwanieuzytkownikow.UseVisualStyleBackColor = false;
+            usuwanieuzytkownikow.Click += button1_Click_1;
+            // 
+            // Rejestracja
+            // 
+            Rejestracja.BackColor = Color.DarkTurquoise;
+            Rejestracja.BackgroundImageLayout = ImageLayout.None;
+            Rejestracja.FlatStyle = FlatStyle.Flat;
+            Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
+            Rejestracja.Location = new Point(12, 376);
+            Rejestracja.Name = "Rejestracja";
+            Rejestracja.Size = new Size(297, 59);
+            Rejestracja.TabIndex = 5;
+            Rejestracja.Text = "Rejestracja nowych uzytkownikow";
+            Rejestracja.UseVisualStyleBackColor = false;
+            Rejestracja.Click += Rejestracja_Click;
+            // 
+            // refresh
+            // 
+            refresh.BackgroundImage = Properties.Resources.Refresh_icon;
+            refresh.BackgroundImageLayout = ImageLayout.Stretch;
+            refresh.Location = new Point(256, 544);
+            refresh.Name = "refresh";
+            refresh.Size = new Size(57, 50);
+            refresh.TabIndex = 2;
+            refresh.TabStop = false;
+            refresh.Click += refresh_Click;
+            // 
+            // logout
+            // 
+            logout.BackColor = Color.Transparent;
+            logout.BackgroundImage = Properties.Resources.logout3;
+            logout.BackgroundImageLayout = ImageLayout.Stretch;
+            logout.Cursor = Cursors.Hand;
+            logout.Location = new Point(12, 544);
+            logout.Name = "logout";
+            logout.Size = new Size(51, 50);
+            logout.TabIndex = 4;
+            logout.TabStop = false;
+            toolTip1.SetToolTip(logout, "Wyloguj z systemu");
+            logout.Click += logout_Click;
+            // 
+            // Ksiegowy
+            // 
+            Ksiegowy.BackColor = Color.DarkTurquoise;
+            Ksiegowy.BackgroundImageLayout = ImageLayout.None;
+            Ksiegowy.FlatStyle = FlatStyle.Flat;
+            Ksiegowy.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            Ksiegowy.Location = new Point(64, 268);
+            Ksiegowy.Name = "Ksiegowy";
+            Ksiegowy.Size = new Size(194, 59);
+            Ksiegowy.TabIndex = 3;
+            Ksiegowy.Text = "Księgowy";
+            Ksiegowy.UseVisualStyleBackColor = false;
+            Ksiegowy.Click += Ksiegowy_Click;
+            // 
+            // Serwisant
+            // 
+            Serwisant.BackColor = Color.DarkTurquoise;
+            Serwisant.BackgroundImageLayout = ImageLayout.None;
+            Serwisant.FlatStyle = FlatStyle.Flat;
+            Serwisant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            Serwisant.Location = new Point(64, 168);
+            Serwisant.Name = "Serwisant";
+            Serwisant.Size = new Size(194, 59);
+            Serwisant.TabIndex = 2;
+            Serwisant.Text = "Serwisant";
+            Serwisant.UseVisualStyleBackColor = false;
+            Serwisant.Click += Serwisant_Click;
+            // 
+            // panele
+            // 
+            panele.AutoSize = true;
+            panele.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            panele.Location = new Point(12, 18);
+            panele.Name = "panele";
+            panele.Size = new Size(297, 23);
+            panele.TabIndex = 1;
+            panele.Text = "Dostępne Panele do zarządzania";
+            // 
+            // Konsultant
+            // 
+            Konsultant.BackColor = Color.DarkTurquoise;
+            Konsultant.BackgroundImageLayout = ImageLayout.None;
+            Konsultant.FlatStyle = FlatStyle.Flat;
+            Konsultant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            Konsultant.Location = new Point(64, 76);
+            Konsultant.Name = "Konsultant";
+            Konsultant.Size = new Size(194, 59);
+            Konsultant.TabIndex = 0;
+            Konsultant.Text = "Konsultant";
+            Konsultant.UseVisualStyleBackColor = false;
+            Konsultant.Click += Konsultant_Click;
+            // 
+            // toolTip1
+            // 
+            toolTip1.Popup += toolTip1_Popup;
+            // 
+            // panelL
+            // 
+            panelL.Location = new Point(343, 141);
+            panelL.Name = "panelL";
+            panelL.Size = new Size(253, 190);
+            panelL.TabIndex = 4;
+            // 
+            // panelsrodkowy
+            // 
+            panelsrodkowy.Location = new Point(619, 141);
+            panelsrodkowy.Name = "panelsrodkowy";
+            panelsrodkowy.Size = new Size(253, 190);
+            panelsrodkowy.TabIndex = 5;
+            // 
+            // panelP
+            // 
+            panelP.Location = new Point(914, 141);
+            panelP.Name = "panelP";
+            panelP.Size = new Size(253, 190);
+            panelP.TabIndex = 5;
+            // 
+            // tabelka
+            // 
+            tabelka.Controls.Add(listapracownikowtabela);
+            tabelka.Controls.Add(listapracownikow);
+            tabelka.Controls.Add(dataGridView1);
+            tabelka.Controls.Add(listauserow);
+            tabelka.Location = new Point(322, 355);
+            tabelka.Name = "tabelka";
+            tabelka.Size = new Size(930, 362);
+            tabelka.TabIndex = 5;
+            // 
+            // listapracownikowtabela
+            // 
+            listapracownikowtabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            listapracownikowtabela.Location = new Point(478, 45);
+            listapracownikowtabela.Name = "listapracownikowtabela";
+            listapracownikowtabela.Size = new Size(442, 313);
+            listapracownikowtabela.TabIndex = 3;
+            listapracownikowtabela.CellContentClick += listapracownikowtabela_CellContentClick;
+            // 
+            // listapracownikow
+            // 
+            listapracownikow.AutoSize = true;
+            listapracownikow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            listapracownikow.Location = new Point(478, 17);
+            listapracownikow.Name = "listapracownikow";
+            listapracownikow.Size = new Size(183, 25);
+            listapracownikow.TabIndex = 2;
+            listapracownikow.Text = "Lista Pracowników";
+            listapracownikow.Click += label1_Click_2;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(11, 45);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(424, 313);
+            dataGridView1.TabIndex = 1;
+            // 
+            // listauserow
+            // 
+            listauserow.AutoSize = true;
+            listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            listauserow.Location = new Point(11, 17);
+            listauserow.Name = "listauserow";
+            listauserow.Size = new Size(192, 25);
+            listauserow.TabIndex = 0;
+            listauserow.Text = "Lista Użytkownikow";
+            listauserow.Click += label1_Click_1;
+            // 
+            // Adminmenu
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1264, 729);
+            Controls.Add(tabelka);
+            Controls.Add(panelP);
+            Controls.Add(panelsrodkowy);
+            Controls.Add(panelL);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "Adminmenu";
+            Text = "Adminmenu";
+            Load += Adminmenu_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)refresh).EndInit();
+            ((System.ComponentModel.ISupportInitialize)logout).EndInit();
+            tabelka.ResumeLayout(false);
+            tabelka.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)listapracownikowtabela).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Panel panel1;
+        private Panel panel2;
+        private Label glowna_nazwa;
+        private Panel panel3;
+        private DateTimePicker data;
+        private Label panele;
+        private Button Konsultant;
+       
+        private Button Ksiegowy;
+        private Button Serwisant;
+        private PictureBox logout;
+        private ToolTip toolTip1;
+        private PictureBox pictureBox1;
+        private Panel panelL;
+        private Panel panelsrodkowy;
+        private Panel panelP;
+        private Panel tabelka;
+        private Label listauserow;
+        private DataGridView dataGridView1;
+        private PictureBox refresh;
+        
+        private Button Rejestracja;
+        private Button usuwanieuzytkownikow;
+        private DataGridView listapracownikowtabela;
+        private Label listapracownikow;
+    }
+}
