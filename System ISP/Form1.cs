@@ -36,11 +36,27 @@ namespace System_ISP
 
         }
 
+<<<<<<< HEAD
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+=======
+>>>>>>> ee870e48fbe8a74d6aaf8783adbed09018de434d
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
+<<<<<<< HEAD
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string nazwaUzytkownika = nazwauzytkownika.Text;
+            
+            // Mo�esz teraz co� z tym zrobi�:
+            MessageBox.Show($"Wprowadzi�e�: {nazwaUzytkownika}");
+=======
         private void login_pass_TextChanged(object sender, EventArgs e)
         {
 
@@ -145,6 +161,7 @@ namespace System_ISP
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+>>>>>>> ee870e48fbe8a74d6aaf8783adbed09018de434d
         }
     }
 }
