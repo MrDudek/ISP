@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace System_ISP
 {
@@ -34,15 +35,14 @@ namespace System_ISP
             string login = login_username.Text.Trim();
             string haslo = login_pass.Text.Trim();
             string rola = comboBox1.SelectedItem?.ToString();
-            string imie = textBox_imie.Text.Trim();
-            string nazwisko = textBox_nazwisko.Text.Trim();
-            string email = textBox_email.Text.Trim();
-            string telefon = textBox_telefon.Text.Trim();
+            string imie = namebox.Text.Trim();
+            string nazwisko = surnamebox.Text.Trim();
+            string mail = emailbox.Text.Trim();
+            string tel = telefonbox.Text.Trim();
 
-            // Sprawdzenie, czy wszystkie pola są wypełnione
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(haslo) || string.IsNullOrEmpty(rola)
                 || string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko)
-                || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(telefon))
+                || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(tel))
             {
                 MessageBox.Show("Uzupełnij wszystkie pola!");
                 return;
@@ -66,11 +66,20 @@ namespace System_ISP
                         cmd.Parameters.AddWithValue("@rola", rola);
                         cmd.Parameters.AddWithValue("@imie", imie);
                         cmd.Parameters.AddWithValue("@nazwisko", nazwisko);
-                        cmd.Parameters.AddWithValue("@email", email);
-                        cmd.Parameters.AddWithValue("@telefon", telefon);
+                        cmd.Parameters.AddWithValue("@email", mail);
+                        cmd.Parameters.AddWithValue("@telefon", tel);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("✅ Użytkownik dodany!");
+
+                        // Wyczyść formularz po dodaniu
+                        login_username.Clear();
+                        login_pass.Clear();
+                        comboBox1.SelectedIndex = -1;
+                        namebox.Clear();
+                        surnamebox.Clear();
+                        emailbox.Clear();
+                        telefonbox.Clear();
                     }
                 }
                 catch (Exception ex)
@@ -91,6 +100,46 @@ namespace System_ISP
         }
 
         private void login_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void surname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void telefon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }

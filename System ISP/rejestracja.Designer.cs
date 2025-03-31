@@ -30,13 +30,13 @@
         {
             panel1 = new Panel();
             tekstrola = new Label();
-            textBox4 = new TextBox();
+            telefonbox = new TextBox();
             telefon = new Label();
-            textBox3 = new TextBox();
+            emailbox = new TextBox();
             Email = new Label();
-            textBox2 = new TextBox();
+            surnamebox = new TextBox();
             surname = new Label();
-            textBox1 = new TextBox();
+            namebox = new TextBox();
             name = new Label();
             comboBox1 = new ComboBox();
             opis = new Label();
@@ -55,13 +55,13 @@
             panel1.BackColor = SystemColors.ButtonFace;
             panel1.BackgroundImage = Properties.Resources.tło;
             panel1.Controls.Add(tekstrola);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(telefonbox);
             panel1.Controls.Add(telefon);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(emailbox);
             panel1.Controls.Add(Email);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(surnamebox);
             panel1.Controls.Add(surname);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(namebox);
             panel1.Controls.Add(name);
             panel1.Controls.Add(comboBox1);
             panel1.Controls.Add(opis);
@@ -89,14 +89,15 @@
             tekstrola.TabIndex = 21;
             tekstrola.Text = "Wybierz Role w systemie";
             // 
-            // textBox4
+            // telefonbox
             // 
-            textBox4.BackColor = SystemColors.Control;
-            textBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox4.Location = new Point(14, 446);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(427, 29);
-            textBox4.TabIndex = 20;
+            telefonbox.BackColor = SystemColors.Control;
+            telefonbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            telefonbox.Location = new Point(14, 446);
+            telefonbox.Name = "telefonbox";
+            telefonbox.Size = new Size(427, 29);
+            telefonbox.TabIndex = 20;
+            telefonbox.TextChanged += textBox4_TextChanged;
             // 
             // telefon
             // 
@@ -110,15 +111,17 @@
             telefon.Size = new Size(73, 22);
             telefon.TabIndex = 19;
             telefon.Text = "Telefon";
+            telefon.Click += telefon_Click;
             // 
-            // textBox3
+            // emailbox
             // 
-            textBox3.BackColor = SystemColors.Control;
-            textBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox3.Location = new Point(14, 380);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(427, 29);
-            textBox3.TabIndex = 18;
+            emailbox.BackColor = SystemColors.Control;
+            emailbox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            emailbox.Location = new Point(14, 380);
+            emailbox.Name = "emailbox";
+            emailbox.Size = new Size(427, 29);
+            emailbox.TabIndex = 18;
+            emailbox.TextChanged += textBox3_TextChanged;
             // 
             // Email
             // 
@@ -132,15 +135,17 @@
             Email.Size = new Size(57, 22);
             Email.TabIndex = 17;
             Email.Text = "Email";
+            Email.Click += Email_Click;
             // 
-            // textBox2
+            // surnamebox
             // 
-            textBox2.BackColor = SystemColors.Control;
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox2.Location = new Point(14, 323);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(427, 29);
-            textBox2.TabIndex = 16;
+            surnamebox.BackColor = SystemColors.Control;
+            surnamebox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            surnamebox.Location = new Point(14, 323);
+            surnamebox.Name = "surnamebox";
+            surnamebox.Size = new Size(427, 29);
+            surnamebox.TabIndex = 16;
+            surnamebox.TextChanged += textBox2_TextChanged;
             // 
             // surname
             // 
@@ -154,15 +159,17 @@
             surname.Size = new Size(89, 22);
             surname.TabIndex = 15;
             surname.Text = "Nazwisko";
+            surname.Click += surname_Click;
             // 
-            // textBox1
+            // namebox
             // 
-            textBox1.BackColor = SystemColors.Control;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            textBox1.Location = new Point(14, 256);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(427, 29);
-            textBox1.TabIndex = 14;
+            namebox.BackColor = SystemColors.Control;
+            namebox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            namebox.Location = new Point(14, 256);
+            namebox.Name = "namebox";
+            namebox.Size = new Size(427, 29);
+            namebox.TabIndex = 14;
+            namebox.TextChanged += textBox1_TextChanged;
             // 
             // name
             // 
@@ -176,6 +183,7 @@
             name.Size = new Size(47, 22);
             name.TabIndex = 13;
             name.Text = "Imie";
+            name.Click += name_Click;
             // 
             // comboBox1
             // 
@@ -307,13 +315,13 @@
         private Label exit;
         private Label opis;
         private ComboBox comboBox1;
-        private TextBox textBox4;
+        private TextBox telefonbox;
         private Label telefon;
-        private TextBox textBox3;
+        private TextBox emailbox;
         private Label Email;
-        private TextBox textBox2;
+        private TextBox surnamebox;
         private Label surname;
-        private TextBox textBox1;
+        private TextBox namebox;
         private Label name;
         private Label tekstrola;
     }
