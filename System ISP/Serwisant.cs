@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace System_ISP
 {
-    public partial class Serwisant : Form
+    public partial class Serwisant : BaseForm
     {
         public Serwisant()
         {
             InitializeComponent();
+            EnableDrag(panel1);
+        }
+
+        private void tekst_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
