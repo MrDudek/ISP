@@ -31,5 +31,23 @@ namespace System_ISP
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string nazwaUzytkownika = nazwauzytkownika.Text;
+            
+            // Mo¿esz teraz coœ z tym zrobiæ:
+            MessageBox.Show($"Wprowadzi³eœ: {nazwaUzytkownika}");
+        }
     }
 }
