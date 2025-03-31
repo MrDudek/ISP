@@ -184,7 +184,7 @@
             Konsultant.BackgroundImageLayout = ImageLayout.None;
             Konsultant.FlatStyle = FlatStyle.Flat;
             Konsultant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Konsultant.Location = new Point(64, 76);
+            Konsultant.Location = new Point(64, 78);
             Konsultant.Name = "Konsultant";
             Konsultant.Size = new Size(194, 59);
             Konsultant.TabIndex = 0;

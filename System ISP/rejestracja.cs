@@ -1,4 +1,4 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +18,14 @@ namespace System_ISP
         {
             InitializeComponent();
             EnableDrag(panel1);
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("— Wybierz rolę —");
+            comboBox1.Items.Add("Admin");
+            comboBox1.Items.Add("Konsultant");
+            comboBox1.Items.Add("Serwisant");
+            comboBox1.Items.Add("Ksiegowy");
+            comboBox1.Items.Add("Klient");
+            comboBox1.SelectedIndex = 0;
         }
 
         private void nazwa_Click(object sender, EventArgs e)
@@ -40,7 +48,8 @@ namespace System_ISP
             string mail = emailbox.Text.Trim();
             string tel = telefonbox.Text.Trim();
 
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(haslo) || string.IsNullOrEmpty(rola)
+            if (string.IsNullOrEmpty(rola) || rola == "— Wybierz rolę —"
+                || string.IsNullOrEmpty(login) || string.IsNullOrEmpty(haslo)
                 || string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko)
                 || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(tel))
             {
@@ -48,46 +57,83 @@ namespace System_ISP
                 return;
             }
 
-            string connectionString = "Server=194.92.64.24,12145;Database=IOpsk;User Id=mirek;Password=ZAQ!2wsx;TrustServerCertificate=True;";
+            SqlConnection conn = DBConnection.GetConnection();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
+                if (conn.State != ConnectionState.Open)
                     conn.Open();
 
-                    string query = "INSERT INTO dbo.Klient (login, pass, rola, Imie, Nazwisko, Email, Telefon) " +
-                                   "VALUES (@login, @haslo, @rola, @imie, @nazwisko, @email, @telefon)";
+                // 1. Sprawdź, czy login już istnieje
+                string checkLogin = "SELECT COUNT(*) FROM dbo.Klient WHERE login = @login " +
+                                    "UNION ALL " +
+                                    "SELECT COUNT(*) FROM dbo.Pracownik WHERE login = @login";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand checkCmd = new SqlCommand(checkLogin, conn))
+                {
+                    checkCmd.Parameters.AddWithValue("@login", login);
+                    int totalMatches = 0;
+
+                    using (SqlDataReader reader = checkCmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@login", login);
-                        cmd.Parameters.AddWithValue("@haslo", haslo);
-                        cmd.Parameters.AddWithValue("@rola", rola);
-                        cmd.Parameters.AddWithValue("@imie", imie);
-                        cmd.Parameters.AddWithValue("@nazwisko", nazwisko);
-                        cmd.Parameters.AddWithValue("@email", mail);
-                        cmd.Parameters.AddWithValue("@telefon", tel);
+                        while (reader.Read())
+                            totalMatches += reader.GetInt32(0);
+                    }
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("✅ Użytkownik dodany!");
-
-                        // Wyczyść formularz po dodaniu
-                        login_username.Clear();
-                        login_pass.Clear();
-                        comboBox1.SelectedIndex = -1;
-                        namebox.Clear();
-                        surnamebox.Clear();
-                        emailbox.Clear();
-                        telefonbox.Clear();
+                    if (totalMatches > 0)
+                    {
+                        MessageBox.Show("⚠️ Login już istnieje.");
+                        return;
                     }
                 }
-                catch (Exception ex)
+
+                // 2. Wstawianie do odpowiedniej tabeli
+                string query;
+
+                if (rola.ToLower() == "klient") // dodaj do Klient
                 {
-                    MessageBox.Show("❌ Błąd: " + ex.Message);
+                    query = "INSERT INTO dbo.Klient (login, pass, rola, Imie, Nazwisko, Email, Telefon) " +
+                            "VALUES (@login, @haslo, @rola, @imie, @nazwisko, @email, @telefon)";
+                }
+                else // dodaj do Pracownik
+                {
+                    query = "INSERT INTO dbo.Pracownik (login, pass, rola, imię, nazwisko, email, telefon) " +
+                            "VALUES (@login, @haslo, @rola, @imie, @nazwisko, @email, @telefon)";
+                }
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@login", login);
+                    cmd.Parameters.AddWithValue("@haslo", haslo);
+                    cmd.Parameters.AddWithValue("@rola", rola);
+                    cmd.Parameters.AddWithValue("@imie", imie);
+                    cmd.Parameters.AddWithValue("@nazwisko", nazwisko);
+                    cmd.Parameters.AddWithValue("@email", mail);
+                    cmd.Parameters.AddWithValue("@telefon", tel);
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("✅ Użytkownik dodany!");
+
+                    // Czyścimy formularz
+                    login_username.Clear();
+                    login_pass.Clear();
+                    comboBox1.SelectedIndex = 0;
+                    namebox.Clear();
+                    surnamebox.Clear();
+                    emailbox.Clear();
+                    telefonbox.Clear();
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ Błąd: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -125,7 +125,7 @@
             Rejestracja.BackgroundImageLayout = ImageLayout.None;
             Rejestracja.FlatStyle = FlatStyle.Flat;
             Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
-            Rejestracja.Location = new Point(12, 457);
+            Rejestracja.Location = new Point(16, 403);
             Rejestracja.Name = "Rejestracja";
             Rejestracja.Size = new Size(297, 59);
             Rejestracja.TabIndex = 5;
@@ -190,6 +190,7 @@
             button1.TabIndex = 0;
             button1.Text = "Konsultant";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // panel3
             // 

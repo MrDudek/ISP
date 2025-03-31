@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,14 @@ namespace System_ISP
 {
     public partial class Adminmenu : BaseForm
     {
+        
         public Adminmenu()
         {
             InitializeComponent();
             EnableDrag(panel1);
             WczytajUzytkownikow();
+
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,7 +36,9 @@ namespace System_ISP
 
         private void Ksiegowy_Click(object sender, EventArgs e)
         {
-
+            Ksiegowy ksiegowyForm = new Ksiegowy();
+            ksiegowyForm.Show();
+            this.Hide();
         }
 
         private void Adminmenu_Load(object sender, EventArgs e)
@@ -87,29 +93,7 @@ namespace System_ISP
         {
 
         }
-        private void WczytajUzytkownikow()
-        {
-            string connectionString = "Server=194.92.64.24,12145;Database=IOpsk;User Id=mirek;Password=ZAQ!2wsx;TrustServerCertificate=True;";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT * FROM dbo.Klient";
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    dataGridView1.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Błąd ładowania użytkowników:\n" + ex.Message);
-                }
-            }
-        }
+       
 
         private void refresh_Click(object sender, EventArgs e)
         {
@@ -120,6 +104,69 @@ namespace System_ISP
         {
             rejestracja rejestracjaOkno = new rejestracja();
             rejestracjaOkno.Show();
+        }
+
+        private void Serwisant_Click(object sender, EventArgs e)
+        {
+            Serwisant serwisantForm = new Serwisant();
+            serwisantForm.Show();
+            this.Hide();
+        }
+
+        private void Konsultant_Click(object sender, EventArgs e)
+        {
+            Konsultant konsultantForm = new Konsultant();
+            konsultantForm.Show();
+            this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            usuwanieuser oknoUsuwania = new usuwanieuser();
+            oknoUsuwania.Show();
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+      
+
+        private void listapracownikowtabela_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void WczytajUzytkownikow()
+        {
+            SqlConnection conn = DBConnection.GetConnection();
+
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                // Pobierz klientów
+                string queryKlient = "SELECT Imie, Nazwisko, Wiek, Email, Telefon, login, rola FROM dbo.Klient";
+                SqlDataAdapter adapterKlient = new SqlDataAdapter(queryKlient, conn);
+                DataTable dtKlient = new DataTable();
+                adapterKlient.Fill(dtKlient);
+                dataGridView1.DataSource = dtKlient;
+
+                // Pobierz pracowników
+                string queryPracownik = "SELECT imię, nazwisko, wiek, email, telefon, login, rola FROM dbo.Pracownik";
+                SqlDataAdapter adapterPracownik = new SqlDataAdapter(queryPracownik, conn);
+                DataTable dtPracownik = new DataTable();
+                adapterPracownik.Fill(dtPracownik);
+                listapracownikowtabela.DataSource = dtPracownik;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ Błąd ładowania danych:\n" + ex.Message);
+            }
+            finally
+            {
+                conn.Close(); // zamknij połączenie, bo to singleton
+            }
         }
     }
 }

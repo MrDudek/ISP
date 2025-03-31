@@ -35,6 +35,7 @@
             glowna_nazwa = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            usuwanieuzytkownikow = new Button();
             Rejestracja = new Button();
             refresh = new PictureBox();
             logout = new PictureBox();
@@ -47,6 +48,8 @@
             panelsrodkowy = new Panel();
             panelP = new Panel();
             tabelka = new Panel();
+            listapracownikowtabela = new DataGridView();
+            listapracownikow = new Label();
             dataGridView1 = new DataGridView();
             listauserow = new Label();
             panel1.SuspendLayout();
@@ -55,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)refresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             tabelka.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)listapracownikowtabela).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -114,6 +118,7 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
+            panel3.Controls.Add(usuwanieuzytkownikow);
             panel3.Controls.Add(Rejestracja);
             panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
@@ -128,13 +133,27 @@
             panel3.TabIndex = 3;
             panel3.Paint += panel3_Paint;
             // 
+            // usuwanieuzytkownikow
+            // 
+            usuwanieuzytkownikow.BackColor = Color.DarkTurquoise;
+            usuwanieuzytkownikow.BackgroundImageLayout = ImageLayout.None;
+            usuwanieuzytkownikow.FlatStyle = FlatStyle.Flat;
+            usuwanieuzytkownikow.Font = new Font("Arial Black", 10F, FontStyle.Bold);
+            usuwanieuzytkownikow.Location = new Point(12, 441);
+            usuwanieuzytkownikow.Name = "usuwanieuzytkownikow";
+            usuwanieuzytkownikow.Size = new Size(297, 59);
+            usuwanieuzytkownikow.TabIndex = 6;
+            usuwanieuzytkownikow.Text = "Usuwanie Użytkowników";
+            usuwanieuzytkownikow.UseVisualStyleBackColor = false;
+            usuwanieuzytkownikow.Click += button1_Click_1;
+            // 
             // Rejestracja
             // 
             Rejestracja.BackColor = Color.DarkTurquoise;
             Rejestracja.BackgroundImageLayout = ImageLayout.None;
             Rejestracja.FlatStyle = FlatStyle.Flat;
             Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
-            Rejestracja.Location = new Point(12, 457);
+            Rejestracja.Location = new Point(12, 376);
             Rejestracja.Name = "Rejestracja";
             Rejestracja.Size = new Size(297, 59);
             Rejestracja.TabIndex = 5;
@@ -193,6 +212,7 @@
             Serwisant.TabIndex = 2;
             Serwisant.Text = "Serwisant";
             Serwisant.UseVisualStyleBackColor = false;
+            Serwisant.Click += Serwisant_Click;
             // 
             // panele
             // 
@@ -216,6 +236,7 @@
             Konsultant.TabIndex = 0;
             Konsultant.Text = "Konsultant";
             Konsultant.UseVisualStyleBackColor = false;
+            Konsultant.Click += Konsultant_Click;
             // 
             // toolTip1
             // 
@@ -244,6 +265,8 @@
             // 
             // tabelka
             // 
+            tabelka.Controls.Add(listapracownikowtabela);
+            tabelka.Controls.Add(listapracownikow);
             tabelka.Controls.Add(dataGridView1);
             tabelka.Controls.Add(listauserow);
             tabelka.Location = new Point(322, 355);
@@ -251,19 +274,39 @@
             tabelka.Size = new Size(930, 362);
             tabelka.TabIndex = 5;
             // 
+            // listapracownikowtabela
+            // 
+            listapracownikowtabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            listapracownikowtabela.Location = new Point(478, 45);
+            listapracownikowtabela.Name = "listapracownikowtabela";
+            listapracownikowtabela.Size = new Size(442, 313);
+            listapracownikowtabela.TabIndex = 3;
+            listapracownikowtabela.CellContentClick += listapracownikowtabela_CellContentClick;
+            // 
+            // listapracownikow
+            // 
+            listapracownikow.AutoSize = true;
+            listapracownikow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            listapracownikow.Location = new Point(478, 17);
+            listapracownikow.Name = "listapracownikow";
+            listapracownikow.Size = new Size(183, 25);
+            listapracownikow.TabIndex = 2;
+            listapracownikow.Text = "Lista Pracowników";
+            listapracownikow.Click += label1_Click_2;
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(11, 45);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(913, 313);
+            dataGridView1.Size = new Size(424, 313);
             dataGridView1.TabIndex = 1;
             // 
             // listauserow
             // 
             listauserow.AutoSize = true;
             listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listauserow.Location = new Point(15, 15);
+            listauserow.Location = new Point(11, 17);
             listauserow.Name = "listauserow";
             listauserow.Size = new Size(192, 25);
             listauserow.TabIndex = 0;
@@ -295,6 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
             tabelka.ResumeLayout(false);
             tabelka.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)listapracownikowtabela).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -308,7 +352,7 @@
         private DateTimePicker data;
         private Label panele;
         private Button Konsultant;
-        private Button Admin;
+       
         private Button Ksiegowy;
         private Button Serwisant;
         private PictureBox logout;
@@ -321,7 +365,10 @@
         private Label listauserow;
         private DataGridView dataGridView1;
         private PictureBox refresh;
-        private Button button1;
+        
         private Button Rejestracja;
+        private Button usuwanieuzytkownikow;
+        private DataGridView listapracownikowtabela;
+        private Label listapracownikow;
     }
 }
