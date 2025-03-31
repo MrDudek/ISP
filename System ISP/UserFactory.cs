@@ -10,7 +10,7 @@
                 "serwisant" => new Serwisant(),
                 "konsultant" => new Konsultant(),
                 "ksiegowy" => new Ksiegowy(),
-                "user" => new user(),
+                "klient" => new user(),
                 _ => null
             };
         }

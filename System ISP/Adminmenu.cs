@@ -146,14 +146,14 @@ namespace System_ISP
                     conn.Open();
 
                 // Pobierz klientów
-                string queryKlient = "SELECT Imie, Nazwisko, Wiek, Email, Telefon, login, rola FROM dbo.Klient";
+                string queryKlient = "SELECT Imie, Nazwisko, Wiek, Email, Telefon, login, pass, rola FROM dbo.Klient";
                 SqlDataAdapter adapterKlient = new SqlDataAdapter(queryKlient, conn);
                 DataTable dtKlient = new DataTable();
                 adapterKlient.Fill(dtKlient);
                 dataGridView1.DataSource = dtKlient;
 
                 // Pobierz pracowników
-                string queryPracownik = "SELECT imię, nazwisko, wiek, email, telefon, login, rola FROM dbo.Pracownik";
+                string queryPracownik = "SELECT imię, nazwisko, wiek, email, telefon, login, pass, rola FROM dbo.Pracownik";
                 SqlDataAdapter adapterPracownik = new SqlDataAdapter(queryPracownik, conn);
                 DataTable dtPracownik = new DataTable();
                 adapterPracownik.Fill(dtPracownik);
