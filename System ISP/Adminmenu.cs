@@ -184,7 +184,7 @@ namespace System_ISP
             serwisantForm.Show();
             this.Hide();
         }
-        {
+        
 private void ksiegowybutton_Click(object sender, EventArgs e)
         //przycisk do przejścia do księgowego
         {
@@ -221,4 +221,4 @@ private void ksiegowybutton_Click(object sender, EventArgs e)
         }
     }
 }
-}
+
