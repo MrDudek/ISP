@@ -295,9 +295,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 49);
+            dataGridView1.Location = new Point(21, 28);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(424, 313);
+            dataGridView1.Size = new Size(909, 270);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -307,17 +307,17 @@
             tabelka.Controls.Add(listapracownikowtabela);
             tabelka.Controls.Add(listapracownikow);
             tabelka.Controls.Add(listauserow);
-            tabelka.Location = new Point(322, 143);
+            tabelka.Location = new Point(322, 129);
             tabelka.Name = "tabelka";
-            tabelka.Size = new Size(930, 574);
+            tabelka.Size = new Size(942, 600);
             tabelka.TabIndex = 5;
             // 
             // listapracownikowtabela
             // 
             listapracownikowtabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            listapracownikowtabela.Location = new Point(478, 45);
+            listapracownikowtabela.Location = new Point(21, 346);
             listapracownikowtabela.Name = "listapracownikowtabela";
-            listapracownikowtabela.Size = new Size(442, 313);
+            listapracownikowtabela.Size = new Size(909, 242);
             listapracownikowtabela.TabIndex = 3;
             listapracownikowtabela.CellContentClick += listapracownikowtabela_CellContentClick;
             // 
@@ -325,7 +325,7 @@
             // 
             listapracownikow.AutoSize = true;
             listapracownikow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listapracownikow.Location = new Point(478, 17);
+            listapracownikow.Location = new Point(21, 318);
             listapracownikow.Name = "listapracownikow";
             listapracownikow.Size = new Size(183, 25);
             listapracownikow.TabIndex = 2;
@@ -336,7 +336,7 @@
             // 
             listauserow.AutoSize = true;
             listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listauserow.Location = new Point(11, 17);
+            listauserow.Location = new Point(21, 0);
             listauserow.Name = "listauserow";
             listauserow.Size = new Size(192, 25);
             listauserow.TabIndex = 0;

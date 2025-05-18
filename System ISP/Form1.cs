@@ -73,7 +73,7 @@ namespace System_ISP
         private void Login_Click(object sender, EventArgs e)
         //miejsce do wpisywania loginu
         {
-           
+
         }
 
         private void loginbutton_Click(object sender, EventArgs e)
@@ -130,6 +130,12 @@ namespace System_ISP
         //pokazuje hasło
         {
             passbox.PasswordChar = showpasssss.Checked ? '\0' : '●';
+        }
+
+        private void wersjaapp_Click(object sender, EventArgs e)
+        //wersja aplikacji dla wygladu
+        {
+
         }
     }
 }

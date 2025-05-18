@@ -40,6 +40,7 @@
             nametekst = new MaterialSkin.Controls.MaterialLabel();
             Nazwa = new Label();
             showpasssss = new MaterialSkin.Controls.MaterialCheckbox();
+            wersjaapp = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -47,7 +48,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonFace;
-            panel1.BackgroundImage = Properties.Resources.tło;
+            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.Controls.Add(pictureBox1);
             panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(-1, -2);
@@ -60,7 +61,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(58, 157);
+            pictureBox1.Location = new Point(59, 145);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(373, 275);
             pictureBox1.TabIndex = 0;
@@ -231,11 +232,23 @@
             showpasssss.UseVisualStyleBackColor = true;
             showpasssss.CheckedChanged += showpasssss_CheckedChanged;
             // 
+            // wersjaapp
+            // 
+            wersjaapp.AutoSize = true;
+            wersjaapp.Font = new Font("Segoe UI", 10F);
+            wersjaapp.Location = new Point(850, 549);
+            wersjaapp.Name = "wersjaapp";
+            wersjaapp.Size = new Size(90, 19);
+            wersjaapp.TabIndex = 10;
+            wersjaapp.Text = "Wersja v.0.11";
+            wersjaapp.Click += wersjaapp_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(952, 577);
+            Controls.Add(wersjaapp);
             Controls.Add(showpasssss);
             Controls.Add(Nazwa);
             Controls.Add(nametekst);
@@ -269,5 +282,6 @@
         private Label Nazwa;
         private PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialCheckbox showpasssss;
+        private Label wersjaapp;
     }
 }

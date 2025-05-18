@@ -40,13 +40,87 @@ namespace System_ISP
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            string login = login_username.Text.Trim();
-            string haslo = login_pass.Text.Trim();
+
+        }
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void login_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void surname_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Email_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void telefon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nametekst_Click(object sender, EventArgs e)
+        //panel informacyjny
+        {
+
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        //pole tekstowe nazwy uzytkownika
+        {
+
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        //przycisk dodawania użytkownika
+        {
+            string login = Login.Text.Trim();
+            string haslo = materialTextBox21.Text.Trim();
+            string imie = materialTextBox22.Text.Trim();
+            string nazwisko = materialTextBox23.Text.Trim();
+            string mail = materialTextBox24.Text.Trim();
+            string tel = materialTextBox25.Text.Trim();
             string rola = comboBox1.SelectedItem?.ToString();
-            string imie = namebox.Text.Trim();
-            string nazwisko = surnamebox.Text.Trim();
-            string mail = emailbox.Text.Trim();
-            string tel = telefonbox.Text.Trim();
 
             if (string.IsNullOrEmpty(rola) || rola == "— Wybierz rolę —"
                 || string.IsNullOrEmpty(login) || string.IsNullOrEmpty(haslo)
@@ -115,13 +189,13 @@ namespace System_ISP
                     MessageBox.Show("✅ Użytkownik dodany!");
 
                     // Czyścimy formularz
-                    login_username.Clear();
-                    login_pass.Clear();
+                    Login.Clear();
+                    materialTextBox21.Clear();
+                    materialTextBox22.Clear();
+                    materialTextBox23.Clear();
+                    materialTextBox24.Clear();
+                    materialTextBox25.Clear();
                     comboBox1.SelectedIndex = 0;
-                    namebox.Clear();
-                    surnamebox.Clear();
-                    emailbox.Clear();
-                    telefonbox.Clear();
                 }
             }
             catch (Exception ex)
@@ -134,58 +208,32 @@ namespace System_ISP
             }
         }
 
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void materialTextBox21_Click(object sender, EventArgs e)
+            //pole do wpisania hasła
         {
 
         }
 
-        private void exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void login_username_TextChanged(object sender, EventArgs e)
+        private void materialTextBox22_Click(object sender, EventArgs e)
+            //pole do wpisania imienia
         {
 
         }
 
-        private void name_Click(object sender, EventArgs e)
+        private void materialTextBox23_Click(object sender, EventArgs e)
+            //pole do wpisania nazwiska
         {
 
         }
 
-        private void surname_Click(object sender, EventArgs e)
+        private void materialTextBox24_Click(object sender, EventArgs e)
+        //pole do wpisania emaila
         {
 
         }
 
-        private void Email_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void telefon_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void materialTextBox25_Click(object sender, EventArgs e)
+        //pole do wpisania numeru telefonu
         {
 
         }

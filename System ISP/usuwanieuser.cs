@@ -16,6 +16,80 @@ namespace System_ISP
 
         private void Delete_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void uzytkownicy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // nieużywane, ale zostawione dla designer'a
+        }
+
+        private void usuwanieuser_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                uzytkownicy.Items.Clear();
+                uzytkownicy.Items.Add("— Wybierz użytkownika —");
+                uzytkownicy.SelectedIndex = 0;
+
+                using (SqlConnection conn = DBConnection.GetConnection())
+                {
+                    conn.Open();
+
+                    // Klienci
+                    string klientQuery = "SELECT Imie, Nazwisko, login, rola FROM dbo.Klient";
+                    using (SqlCommand cmd = new SqlCommand(klientQuery, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string imie = reader["Imie"].ToString();
+                            string nazwisko = reader["Nazwisko"].ToString();
+                            string login = reader["login"].ToString();
+                            string rola = reader["rola"].ToString();
+                            uzytkownicy.Items.Add($"{imie} {nazwisko} ({login}) [{rola}]");
+                        }
+                    }
+
+                    // Pracownicy
+                    string pracownikQuery = "SELECT imię, nazwisko, login, rola FROM dbo.Pracownik";
+                    using (SqlCommand cmd = new SqlCommand(pracownikQuery, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string imie = reader["imię"].ToString();
+                            string nazwisko = reader["nazwisko"].ToString();
+                            string login = reader["login"].ToString();
+                            string rola = reader["rola"].ToString();
+                            uzytkownicy.Items.Add($"{imie} {nazwisko} ({login}) [{rola}]");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("❌ Błąd podczas ładowania użytkowników:\n" + ex.Message);
+            }
+        }
+
+
+
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        //powiadomienie o usunięciu użytkownika informacyjne
+        {
+
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        //przycisk do usuwania użytkownika
+        {
             string selectedItem = uzytkownicy.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(selectedItem) || selectedItem == "— Wybierz użytkownika —")
@@ -81,66 +155,9 @@ namespace System_ISP
             }
         }
 
-        private void uzytkownicy_SelectedIndexChanged(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            // nieużywane, ale zostawione dla designer'a
-        }
 
-        private void usuwanieuser_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                uzytkownicy.Items.Clear();
-                uzytkownicy.Items.Add("— Wybierz użytkownika —");
-                uzytkownicy.SelectedIndex = 0;
-
-                using (SqlConnection conn = DBConnection.GetConnection())
-                {
-                    conn.Open();
-
-                    // Klienci
-                    string klientQuery = "SELECT Imie, Nazwisko, login, rola FROM dbo.Klient";
-                    using (SqlCommand cmd = new SqlCommand(klientQuery, conn))
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string imie = reader["Imie"].ToString();
-                            string nazwisko = reader["Nazwisko"].ToString();
-                            string login = reader["login"].ToString();
-                            string rola = reader["rola"].ToString();
-                            uzytkownicy.Items.Add($"{imie} {nazwisko} ({login}) [{rola}]");
-                        }
-                    }
-
-                    // Pracownicy
-                    string pracownikQuery = "SELECT imię, nazwisko, login, rola FROM dbo.Pracownik";
-                    using (SqlCommand cmd = new SqlCommand(pracownikQuery, conn))
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string imie = reader["imię"].ToString();
-                            string nazwisko = reader["nazwisko"].ToString();
-                            string login = reader["login"].ToString();
-                            string rola = reader["rola"].ToString();
-                            uzytkownicy.Items.Add($"{imie} {nazwisko} ({login}) [{rola}]");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("❌ Błąd podczas ładowania użytkowników:\n" + ex.Message);
-            }
-        }
-
-
-
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
