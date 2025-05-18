@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuwanieuser));
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             exit = new Label();
             uzytkownicy = new ComboBox();
             nazwa = new Label();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            pictureBox1 = new PictureBox();
             label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -50,6 +50,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(469, 585);
             panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(38, 76);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(387, 371);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // exit
             // 
@@ -90,7 +100,7 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(588, 180);
+            materialButton1.Location = new Point(639, 180);
             materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
@@ -102,16 +112,6 @@
             materialButton1.UseAccentColor = false;
             materialButton1.UseVisualStyleBackColor = true;
             materialButton1.Click += materialButton1_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(38, 76);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(387, 371);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // label2
             // 

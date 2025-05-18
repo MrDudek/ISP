@@ -80,9 +80,9 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.exit;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(1216, 16);
+            pictureBox1.Location = new Point(1236, 16);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(26, 38);
+            pictureBox1.Size = new Size(16, 19);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -202,7 +202,7 @@
             ksiegowybutton.NoAccentTextColor = Color.Empty;
             ksiegowybutton.Size = new Size(194, 59);
             ksiegowybutton.TabIndex = 9;
-            ksiegowybutton.Text = "Serwisant";
+            ksiegowybutton.Text = "Księgowy";
             ksiegowybutton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             ksiegowybutton.UseAccentColor = false;
             ksiegowybutton.UseVisualStyleBackColor = true;

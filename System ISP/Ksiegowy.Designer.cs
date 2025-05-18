@@ -227,11 +227,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(863, 150);
+            label2.Location = new Point(808, 150);
             label2.Name = "label2";
-            label2.Size = new Size(294, 28);
+            label2.Size = new Size(390, 28);
             label2.TabIndex = 11;
-            label2.Text = "Faktury gotowe do generowania";
+            label2.Text = "Faktury wygenerowane/czekajce na wysyłke";
             // 
             // dataGridView2
             // 

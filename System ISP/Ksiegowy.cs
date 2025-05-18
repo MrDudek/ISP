@@ -26,7 +26,8 @@ namespace System_ISP
         //przycisk dodawania nowej faktury
 
         {
-
+            NowaFakturaForm nowaFaktura = new NowaFakturaForm();
+            nowaFaktura.ShowDialog();
         }
 
         private void buttongeneratefaktura_Click(object sender, EventArgs e)

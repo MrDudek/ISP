@@ -32,23 +32,18 @@
             listauserow = new Label();
             tabelka = new Panel();
             dataGridView1 = new DataGridView();
-            panelP = new Panel();
-            panelsrodkowy = new Panel();
-            panelL = new Panel();
             toolTip1 = new ToolTip(components);
             logout = new PictureBox();
-            Rejestracja = new Button();
             refresh = new PictureBox();
-            Ksiegowy = new Button();
-            Serwisant = new Button();
             panele = new Label();
-            button1 = new Button();
             panel3 = new Panel();
+            buttonnewfaktura = new MaterialSkin.Controls.MaterialButton();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            data = new DateTimePicker();
             glowna_nazwa = new Label();
             panel1 = new Panel();
+            findbox = new MaterialSkin.Controls.MaterialTextBox2();
+            findusername = new MaterialSkin.Controls.MaterialLabel();
             tabelka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
@@ -62,19 +57,19 @@
             // 
             listauserow.AutoSize = true;
             listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listauserow.Location = new Point(15, 15);
+            listauserow.Location = new Point(11, 17);
             listauserow.Name = "listauserow";
-            listauserow.Size = new Size(192, 25);
+            listauserow.Size = new Size(209, 25);
             listauserow.TabIndex = 0;
-            listauserow.Text = "Lista Użytkownikow";
+            listauserow.Text = "Wyniki Wyszukiwania";
             // 
             // tabelka
             // 
             tabelka.Controls.Add(dataGridView1);
             tabelka.Controls.Add(listauserow);
-            tabelka.Location = new Point(322, 355);
+            tabelka.Location = new Point(322, 271);
             tabelka.Name = "tabelka";
-            tabelka.Size = new Size(930, 362);
+            tabelka.Size = new Size(930, 446);
             tabelka.TabIndex = 10;
             // 
             // dataGridView1
@@ -82,29 +77,8 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(11, 45);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(913, 313);
+            dataGridView1.Size = new Size(913, 401);
             dataGridView1.TabIndex = 1;
-            // 
-            // panelP
-            // 
-            panelP.Location = new Point(914, 141);
-            panelP.Name = "panelP";
-            panelP.Size = new Size(253, 190);
-            panelP.TabIndex = 11;
-            // 
-            // panelsrodkowy
-            // 
-            panelsrodkowy.Location = new Point(619, 141);
-            panelsrodkowy.Name = "panelsrodkowy";
-            panelsrodkowy.Size = new Size(253, 190);
-            panelsrodkowy.TabIndex = 12;
-            // 
-            // panelL
-            // 
-            panelL.Location = new Point(343, 141);
-            panelL.Name = "panelL";
-            panelL.Size = new Size(253, 190);
-            panelL.TabIndex = 9;
             // 
             // logout
             // 
@@ -118,55 +92,17 @@
             logout.TabIndex = 4;
             logout.TabStop = false;
             toolTip1.SetToolTip(logout, "Wyloguj z systemu");
-            // 
-            // Rejestracja
-            // 
-            Rejestracja.BackColor = Color.DarkTurquoise;
-            Rejestracja.BackgroundImageLayout = ImageLayout.None;
-            Rejestracja.FlatStyle = FlatStyle.Flat;
-            Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
-            Rejestracja.Location = new Point(16, 403);
-            Rejestracja.Name = "Rejestracja";
-            Rejestracja.Size = new Size(297, 59);
-            Rejestracja.TabIndex = 5;
-            Rejestracja.Text = "Rejestracja nowych uzytkownikow";
-            Rejestracja.UseVisualStyleBackColor = false;
+            logout.Click += logout_Click;
             // 
             // refresh
             // 
             refresh.BackgroundImage = Properties.Resources.Refresh_icon;
             refresh.BackgroundImageLayout = ImageLayout.Stretch;
-            refresh.Location = new Point(256, 544);
+            refresh.Location = new Point(252, 544);
             refresh.Name = "refresh";
             refresh.Size = new Size(57, 50);
             refresh.TabIndex = 2;
             refresh.TabStop = false;
-            // 
-            // Ksiegowy
-            // 
-            Ksiegowy.BackColor = Color.DarkTurquoise;
-            Ksiegowy.BackgroundImageLayout = ImageLayout.None;
-            Ksiegowy.FlatStyle = FlatStyle.Flat;
-            Ksiegowy.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Ksiegowy.Location = new Point(64, 268);
-            Ksiegowy.Name = "Ksiegowy";
-            Ksiegowy.Size = new Size(194, 59);
-            Ksiegowy.TabIndex = 3;
-            Ksiegowy.Text = "Księgowy";
-            Ksiegowy.UseVisualStyleBackColor = false;
-            // 
-            // Serwisant
-            // 
-            Serwisant.BackColor = Color.DarkTurquoise;
-            Serwisant.BackgroundImageLayout = ImageLayout.None;
-            Serwisant.FlatStyle = FlatStyle.Flat;
-            Serwisant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Serwisant.Location = new Point(64, 168);
-            Serwisant.Name = "Serwisant";
-            Serwisant.Size = new Size(194, 59);
-            Serwisant.TabIndex = 2;
-            Serwisant.Text = "Serwisant";
-            Serwisant.UseVisualStyleBackColor = false;
             // 
             // panele
             // 
@@ -178,35 +114,38 @@
             panele.TabIndex = 1;
             panele.Text = "Dostępne Panele do zarządzania";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.DarkTurquoise;
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            button1.Location = new Point(64, 76);
-            button1.Name = "button1";
-            button1.Size = new Size(194, 59);
-            button1.TabIndex = 0;
-            button1.Text = "Konsultant";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // panel3
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
-            panel3.Controls.Add(Rejestracja);
+            panel3.Controls.Add(buttonnewfaktura);
             panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
-            panel3.Controls.Add(Ksiegowy);
-            panel3.Controls.Add(Serwisant);
             panel3.Controls.Add(panele);
-            panel3.Controls.Add(button1);
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 123);
             panel3.Name = "panel3";
             panel3.Size = new Size(316, 606);
             panel3.TabIndex = 8;
+            // 
+            // buttonnewfaktura
+            // 
+            buttonnewfaktura.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonnewfaktura.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            buttonnewfaktura.Depth = 0;
+            buttonnewfaktura.HighEmphasis = true;
+            buttonnewfaktura.Icon = null;
+            buttonnewfaktura.Location = new Point(57, 62);
+            buttonnewfaktura.Margin = new Padding(4, 6, 4, 6);
+            buttonnewfaktura.MouseState = MaterialSkin.MouseState.HOVER;
+            buttonnewfaktura.Name = "buttonnewfaktura";
+            buttonnewfaktura.NoAccentTextColor = Color.Empty;
+            buttonnewfaktura.Size = new Size(182, 36);
+            buttonnewfaktura.TabIndex = 10;
+            buttonnewfaktura.Text = "Szukaj użytkownika";
+            buttonnewfaktura.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            buttonnewfaktura.UseAccentColor = false;
+            buttonnewfaktura.UseVisualStyleBackColor = true;
+            buttonnewfaktura.Click += buttonnewfaktura_Click;
             // 
             // panel2
             // 
@@ -225,29 +164,22 @@
             pictureBox1.Size = new Size(26, 38);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
-            // 
-            // data
-            // 
-            data.Location = new Point(12, 16);
-            data.Name = "data";
-            data.Size = new Size(200, 23);
-            data.TabIndex = 4;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // glowna_nazwa
             // 
             glowna_nazwa.AutoSize = true;
-            glowna_nazwa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            glowna_nazwa.Location = new Point(349, 17);
+            glowna_nazwa.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            glowna_nazwa.Location = new Point(256, 33);
             glowna_nazwa.Name = "glowna_nazwa";
-            glowna_nazwa.Size = new Size(332, 21);
+            glowna_nazwa.Size = new Size(808, 37);
             glowna_nazwa.TabIndex = 1;
-            glowna_nazwa.Text = "Witaj Administratorze w swoim królestwie";
+            glowna_nazwa.Text = "Witaj w panelu działań Konsultanta czuj się jak u sb w domu :)";
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(data);
             panel1.Controls.Add(glowna_nazwa);
             panel1.Cursor = Cursors.Hand;
             panel1.Dock = DockStyle.Top;
@@ -257,15 +189,54 @@
             panel1.Size = new Size(1264, 123);
             panel1.TabIndex = 6;
             // 
+            // findbox
+            // 
+            findbox.AnimateReadOnly = false;
+            findbox.BackgroundImageLayout = ImageLayout.None;
+            findbox.CharacterCasing = CharacterCasing.Normal;
+            findbox.Depth = 0;
+            findbox.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            findbox.HideSelection = true;
+            findbox.LeadingIcon = null;
+            findbox.Location = new Point(361, 200);
+            findbox.MaxLength = 32767;
+            findbox.MouseState = MaterialSkin.MouseState.OUT;
+            findbox.Name = "findbox";
+            findbox.PasswordChar = '\0';
+            findbox.PrefixSuffixText = null;
+            findbox.ReadOnly = false;
+            findbox.RightToLeft = RightToLeft.No;
+            findbox.SelectedText = "";
+            findbox.SelectionLength = 0;
+            findbox.SelectionStart = 0;
+            findbox.ShortcutsEnabled = true;
+            findbox.Size = new Size(385, 48);
+            findbox.TabIndex = 11;
+            findbox.TabStop = false;
+            findbox.TextAlign = HorizontalAlignment.Left;
+            findbox.TrailingIcon = null;
+            findbox.UseSystemPasswordChar = false;
+            // 
+            // findusername
+            // 
+            findusername.AutoSize = true;
+            findusername.Depth = 0;
+            findusername.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            findusername.Location = new Point(361, 163);
+            findusername.MouseState = MaterialSkin.MouseState.HOVER;
+            findusername.Name = "findusername";
+            findusername.Size = new Size(340, 19);
+            findusername.TabIndex = 12;
+            findusername.Text = "Wpisz żądaną fraze i kliknij Szukaj Użytkownika";
+            // 
             // Konsultant
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 729);
+            Controls.Add(findusername);
+            Controls.Add(findbox);
             Controls.Add(tabelka);
-            Controls.Add(panelP);
-            Controls.Add(panelsrodkowy);
-            Controls.Add(panelL);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -283,6 +254,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -290,22 +262,17 @@
         private Label listauserow;
         private Panel tabelka;
         private DataGridView dataGridView1;
-        private Panel panelP;
-        private Panel panelsrodkowy;
-        private Panel panelL;
         private ToolTip toolTip1;
         private PictureBox logout;
-        private Button Rejestracja;
         private PictureBox refresh;
-        private Button Ksiegowy;
-        private Button Serwisant;
         private Label panele;
-        private Button button1;
         private Panel panel3;
         private Panel panel2;
         private PictureBox pictureBox1;
-        private DateTimePicker data;
         private Label glowna_nazwa;
         private Panel panel1;
+        private MaterialSkin.Controls.MaterialButton buttonnewfaktura;
+        private MaterialSkin.Controls.MaterialTextBox2 findbox;
+        private MaterialSkin.Controls.MaterialLabel findusername;
     }
 }

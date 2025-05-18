@@ -26,5 +26,23 @@ namespace System_ISP
         {
 
         }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Form1 loginForm = new Form1();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonnewfaktura_Click(object sender, EventArgs e)
+            //przycisk do wyszukiwania 
+        {
+
+        }
     }
 }
