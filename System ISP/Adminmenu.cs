@@ -14,14 +14,14 @@ namespace System_ISP
 {
     public partial class Adminmenu : BaseForm
     {
-        
+
         public Adminmenu()
         {
             InitializeComponent();
             EnableDrag(panel1);
             WczytajUzytkownikow();
 
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace System_ISP
         {
 
         }
-       
+
 
         private void refresh_Click(object sender, EventArgs e)
         {
@@ -130,7 +130,7 @@ namespace System_ISP
         {
 
         }
-      
+
 
         private void listapracownikowtabela_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -168,5 +168,57 @@ namespace System_ISP
                 conn.Close(); // zamknij połączenie, bo to singleton
             }
         }
+
+        private void konsultantbutton_Click(object sender, EventArgs e)
+        //przycisk do przejścia do konsultanta
+        {
+            Konsultant konsultantForm = new Konsultant();
+            konsultantForm.Show();
+            this.Hide();
+        }
+
+        private void serwisantbutton_Click(object sender, EventArgs e)
+        //przycisk do przejścia do serwisanta
+        {
+            Serwisant serwisantForm = new Serwisant();
+            serwisantForm.Show();
+            this.Hide();
+        }
+        {
+private void ksiegowybutton_Click(object sender, EventArgs e)
+        //przycisk do przejścia do księgowego
+        {
+            Ksiegowy ksiegowyForm = new Ksiegowy();
+            ksiegowyForm.Show();
+            this.Hide();
+        }
+
+        private void newuserbuttonadd_Click(object sender, EventArgs e)
+        //przycisk do dodania nowego użytkownika
+        {
+            rejestracja rejestracjaOkno = new rejestracja();
+            rejestracjaOkno.Show();
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        //przycisk do usunięcia użytkownika
+        {
+            usuwanieuser oknoUsuwania = new usuwanieuser();
+            oknoUsuwania.Show();
+        }
+
+        private void panele_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            // nazwa tabeli do wyswietlania klientow
+
+
+        {
+
+        }
     }
+}
 }

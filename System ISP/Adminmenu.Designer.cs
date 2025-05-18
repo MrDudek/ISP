@@ -35,31 +35,29 @@
             glowna_nazwa = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
-            usuwanieuzytkownikow = new Button();
-            Rejestracja = new Button();
+            label1 = new Label();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            newuserbuttonadd = new MaterialSkin.Controls.MaterialButton();
+            ksiegowybutton = new MaterialSkin.Controls.MaterialButton();
+            serwisantbutton = new MaterialSkin.Controls.MaterialButton();
+            konsultantbutton = new MaterialSkin.Controls.MaterialButton();
             refresh = new PictureBox();
             logout = new PictureBox();
-            Ksiegowy = new Button();
-            Serwisant = new Button();
             panele = new Label();
-            Konsultant = new Button();
             toolTip1 = new ToolTip(components);
-            panelL = new Panel();
-            panelsrodkowy = new Panel();
-            panelP = new Panel();
+            dataGridView1 = new DataGridView();
             tabelka = new Panel();
             listapracownikowtabela = new DataGridView();
             listapracownikow = new Label();
-            dataGridView1 = new DataGridView();
             listauserow = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)refresh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabelka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)listapracownikowtabela).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,7 +89,7 @@
             // 
             // data
             // 
-            data.Location = new Point(12, 16);
+            data.Location = new Point(12, 12);
             data.Name = "data";
             data.Size = new Size(200, 23);
             data.TabIndex = 4;
@@ -100,10 +98,10 @@
             // glowna_nazwa
             // 
             glowna_nazwa.AutoSize = true;
-            glowna_nazwa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            glowna_nazwa.Location = new Point(349, 17);
+            glowna_nazwa.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            glowna_nazwa.Location = new Point(343, 61);
             glowna_nazwa.Name = "glowna_nazwa";
-            glowna_nazwa.Size = new Size(332, 21);
+            glowna_nazwa.Size = new Size(564, 37);
             glowna_nazwa.TabIndex = 1;
             glowna_nazwa.Text = "Witaj Administratorze w swoim królestwie";
             glowna_nazwa.Click += label1_Click;
@@ -118,14 +116,15 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
-            panel3.Controls.Add(usuwanieuzytkownikow);
-            panel3.Controls.Add(Rejestracja);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(materialButton1);
+            panel3.Controls.Add(newuserbuttonadd);
+            panel3.Controls.Add(ksiegowybutton);
+            panel3.Controls.Add(serwisantbutton);
+            panel3.Controls.Add(konsultantbutton);
             panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
-            panel3.Controls.Add(Ksiegowy);
-            panel3.Controls.Add(Serwisant);
             panel3.Controls.Add(panele);
-            panel3.Controls.Add(Konsultant);
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 123);
             panel3.Name = "panel3";
@@ -133,33 +132,125 @@
             panel3.TabIndex = 3;
             panel3.Paint += panel3_Paint;
             // 
-            // usuwanieuzytkownikow
+            // label1
             // 
-            usuwanieuzytkownikow.BackColor = Color.DarkTurquoise;
-            usuwanieuzytkownikow.BackgroundImageLayout = ImageLayout.None;
-            usuwanieuzytkownikow.FlatStyle = FlatStyle.Flat;
-            usuwanieuzytkownikow.Font = new Font("Arial Black", 10F, FontStyle.Bold);
-            usuwanieuzytkownikow.Location = new Point(12, 441);
-            usuwanieuzytkownikow.Name = "usuwanieuzytkownikow";
-            usuwanieuzytkownikow.Size = new Size(297, 59);
-            usuwanieuzytkownikow.TabIndex = 6;
-            usuwanieuzytkownikow.Text = "Usuwanie Użytkowników";
-            usuwanieuzytkownikow.UseVisualStyleBackColor = false;
-            usuwanieuzytkownikow.Click += button1_Click_1;
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Location = new Point(38, 366);
+            label1.Name = "label1";
+            label1.Size = new Size(255, 23);
+            label1.TabIndex = 12;
+            label1.Text = "Zarządzanie użytkownikami";
             // 
-            // Rejestracja
+            // materialButton1
             // 
-            Rejestracja.BackColor = Color.DarkTurquoise;
-            Rejestracja.BackgroundImageLayout = ImageLayout.None;
-            Rejestracja.FlatStyle = FlatStyle.Flat;
-            Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
-            Rejestracja.Location = new Point(12, 376);
-            Rejestracja.Name = "Rejestracja";
-            Rejestracja.Size = new Size(297, 59);
-            Rejestracja.TabIndex = 5;
-            Rejestracja.Text = "Rejestracja nowych uzytkownikow";
-            Rejestracja.UseVisualStyleBackColor = false;
-            Rejestracja.Click += Rejestracja_Click;
+            materialButton1.AutoSize = false;
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(64, 476);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(194, 59);
+            materialButton1.TabIndex = 11;
+            materialButton1.Text = "Usuwanie użytkowników";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
+            // 
+            // newuserbuttonadd
+            // 
+            newuserbuttonadd.AutoSize = false;
+            newuserbuttonadd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            newuserbuttonadd.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            newuserbuttonadd.Depth = 0;
+            newuserbuttonadd.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            newuserbuttonadd.HighEmphasis = true;
+            newuserbuttonadd.Icon = null;
+            newuserbuttonadd.Location = new Point(64, 405);
+            newuserbuttonadd.Margin = new Padding(4, 6, 4, 6);
+            newuserbuttonadd.MouseState = MaterialSkin.MouseState.HOVER;
+            newuserbuttonadd.Name = "newuserbuttonadd";
+            newuserbuttonadd.NoAccentTextColor = Color.Empty;
+            newuserbuttonadd.Size = new Size(194, 59);
+            newuserbuttonadd.TabIndex = 10;
+            newuserbuttonadd.Text = "Rejestracja nowego użytkownika";
+            newuserbuttonadd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            newuserbuttonadd.UseAccentColor = false;
+            newuserbuttonadd.UseVisualStyleBackColor = true;
+            newuserbuttonadd.Click += newuserbuttonadd_Click;
+            // 
+            // ksiegowybutton
+            // 
+            ksiegowybutton.AutoSize = false;
+            ksiegowybutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ksiegowybutton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            ksiegowybutton.Depth = 0;
+            ksiegowybutton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            ksiegowybutton.HighEmphasis = true;
+            ksiegowybutton.Icon = null;
+            ksiegowybutton.Location = new Point(64, 249);
+            ksiegowybutton.Margin = new Padding(4, 6, 4, 6);
+            ksiegowybutton.MouseState = MaterialSkin.MouseState.HOVER;
+            ksiegowybutton.Name = "ksiegowybutton";
+            ksiegowybutton.NoAccentTextColor = Color.Empty;
+            ksiegowybutton.Size = new Size(194, 59);
+            ksiegowybutton.TabIndex = 9;
+            ksiegowybutton.Text = "Serwisant";
+            ksiegowybutton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            ksiegowybutton.UseAccentColor = false;
+            ksiegowybutton.UseVisualStyleBackColor = true;
+            ksiegowybutton.Click += ksiegowybutton_Click;
+            // 
+            // serwisantbutton
+            // 
+            serwisantbutton.AutoSize = false;
+            serwisantbutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            serwisantbutton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            serwisantbutton.Depth = 0;
+            serwisantbutton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            serwisantbutton.HighEmphasis = true;
+            serwisantbutton.Icon = null;
+            serwisantbutton.Location = new Point(64, 170);
+            serwisantbutton.Margin = new Padding(4, 6, 4, 6);
+            serwisantbutton.MouseState = MaterialSkin.MouseState.HOVER;
+            serwisantbutton.Name = "serwisantbutton";
+            serwisantbutton.NoAccentTextColor = Color.Empty;
+            serwisantbutton.Size = new Size(194, 59);
+            serwisantbutton.TabIndex = 8;
+            serwisantbutton.Text = "Serwisant";
+            serwisantbutton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            serwisantbutton.UseAccentColor = false;
+            serwisantbutton.UseVisualStyleBackColor = true;
+            serwisantbutton.Click += serwisantbutton_Click;
+            // 
+            // konsultantbutton
+            // 
+            konsultantbutton.AutoSize = false;
+            konsultantbutton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            konsultantbutton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            konsultantbutton.Depth = 0;
+            konsultantbutton.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            konsultantbutton.HighEmphasis = true;
+            konsultantbutton.Icon = null;
+            konsultantbutton.Location = new Point(64, 87);
+            konsultantbutton.Margin = new Padding(4, 6, 4, 6);
+            konsultantbutton.MouseState = MaterialSkin.MouseState.HOVER;
+            konsultantbutton.Name = "konsultantbutton";
+            konsultantbutton.NoAccentTextColor = Color.Empty;
+            konsultantbutton.Size = new Size(194, 59);
+            konsultantbutton.TabIndex = 7;
+            konsultantbutton.Text = "   Konsultant   ";
+            konsultantbutton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            konsultantbutton.UseAccentColor = false;
+            konsultantbutton.UseVisualStyleBackColor = true;
+            konsultantbutton.Click += konsultantbutton_Click;
             // 
             // refresh
             // 
@@ -186,92 +277,39 @@
             toolTip1.SetToolTip(logout, "Wyloguj z systemu");
             logout.Click += logout_Click;
             // 
-            // Ksiegowy
-            // 
-            Ksiegowy.BackColor = Color.DarkTurquoise;
-            Ksiegowy.BackgroundImageLayout = ImageLayout.None;
-            Ksiegowy.FlatStyle = FlatStyle.Flat;
-            Ksiegowy.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Ksiegowy.Location = new Point(64, 268);
-            Ksiegowy.Name = "Ksiegowy";
-            Ksiegowy.Size = new Size(194, 59);
-            Ksiegowy.TabIndex = 3;
-            Ksiegowy.Text = "Księgowy";
-            Ksiegowy.UseVisualStyleBackColor = false;
-            Ksiegowy.Click += Ksiegowy_Click;
-            // 
-            // Serwisant
-            // 
-            Serwisant.BackColor = Color.DarkTurquoise;
-            Serwisant.BackgroundImageLayout = ImageLayout.None;
-            Serwisant.FlatStyle = FlatStyle.Flat;
-            Serwisant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Serwisant.Location = new Point(64, 168);
-            Serwisant.Name = "Serwisant";
-            Serwisant.Size = new Size(194, 59);
-            Serwisant.TabIndex = 2;
-            Serwisant.Text = "Serwisant";
-            Serwisant.UseVisualStyleBackColor = false;
-            Serwisant.Click += Serwisant_Click;
-            // 
             // panele
             // 
             panele.AutoSize = true;
             panele.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            panele.Location = new Point(12, 18);
+            panele.Location = new Point(64, 18);
             panele.Name = "panele";
-            panele.Size = new Size(297, 23);
+            panele.Size = new Size(189, 23);
             panele.TabIndex = 1;
-            panele.Text = "Dostępne Panele do zarządzania";
-            // 
-            // Konsultant
-            // 
-            Konsultant.BackColor = Color.DarkTurquoise;
-            Konsultant.BackgroundImageLayout = ImageLayout.None;
-            Konsultant.FlatStyle = FlatStyle.Flat;
-            Konsultant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Konsultant.Location = new Point(64, 76);
-            Konsultant.Name = "Konsultant";
-            Konsultant.Size = new Size(194, 59);
-            Konsultant.TabIndex = 0;
-            Konsultant.Text = "Konsultant";
-            Konsultant.UseVisualStyleBackColor = false;
-            Konsultant.Click += Konsultant_Click;
+            panele.Text = "Panel Administatora";
+            panele.Click += panele_Click;
             // 
             // toolTip1
             // 
             toolTip1.Popup += toolTip1_Popup;
             // 
-            // panelL
+            // dataGridView1
             // 
-            panelL.Location = new Point(343, 141);
-            panelL.Name = "panelL";
-            panelL.Size = new Size(253, 190);
-            panelL.TabIndex = 4;
-            // 
-            // panelsrodkowy
-            // 
-            panelsrodkowy.Location = new Point(619, 141);
-            panelsrodkowy.Name = "panelsrodkowy";
-            panelsrodkowy.Size = new Size(253, 190);
-            panelsrodkowy.TabIndex = 5;
-            // 
-            // panelP
-            // 
-            panelP.Location = new Point(914, 141);
-            panelP.Name = "panelP";
-            panelP.Size = new Size(253, 190);
-            panelP.TabIndex = 5;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(11, 49);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(424, 313);
+            dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // tabelka
             // 
+            tabelka.Controls.Add(dataGridView1);
             tabelka.Controls.Add(listapracownikowtabela);
             tabelka.Controls.Add(listapracownikow);
-            tabelka.Controls.Add(dataGridView1);
             tabelka.Controls.Add(listauserow);
-            tabelka.Location = new Point(322, 355);
+            tabelka.Location = new Point(322, 143);
             tabelka.Name = "tabelka";
-            tabelka.Size = new Size(930, 362);
+            tabelka.Size = new Size(930, 574);
             tabelka.TabIndex = 5;
             // 
             // listapracownikowtabela
@@ -294,14 +332,6 @@
             listapracownikow.Text = "Lista Pracowników";
             listapracownikow.Click += label1_Click_2;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 45);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(424, 313);
-            dataGridView1.TabIndex = 1;
-            // 
             // listauserow
             // 
             listauserow.AutoSize = true;
@@ -319,9 +349,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 729);
             Controls.Add(tabelka);
-            Controls.Add(panelP);
-            Controls.Add(panelsrodkowy);
-            Controls.Add(panelL);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -336,10 +363,10 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)refresh).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tabelka.ResumeLayout(false);
             tabelka.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)listapracownikowtabela).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -351,24 +378,20 @@
         private Panel panel3;
         private DateTimePicker data;
         private Label panele;
-        private Button Konsultant;
-       
-        private Button Ksiegowy;
-        private Button Serwisant;
         private PictureBox logout;
         private ToolTip toolTip1;
         private PictureBox pictureBox1;
-        private Panel panelL;
-        private Panel panelsrodkowy;
-        private Panel panelP;
         private Panel tabelka;
         private Label listauserow;
         private DataGridView dataGridView1;
         private PictureBox refresh;
-        
-        private Button Rejestracja;
-        private Button usuwanieuzytkownikow;
         private DataGridView listapracownikowtabela;
         private Label listapracownikow;
+        private MaterialSkin.Controls.MaterialButton konsultantbutton;
+        private MaterialSkin.Controls.MaterialButton serwisantbutton;
+        private MaterialSkin.Controls.MaterialButton ksiegowybutton;
+        private MaterialSkin.Controls.MaterialButton newuserbuttonadd;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private Label label1;
     }
 }
