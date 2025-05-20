@@ -28,6 +28,7 @@ namespace System_ISP
         }
 
         private void logout_Click(object sender, EventArgs e)
+        //przycisk do wylogowania
         {
             Form1 loginForm = new Form1();
             loginForm.Show();
@@ -40,7 +41,12 @@ namespace System_ISP
         }
 
         private void buttonnewfaktura_Click(object sender, EventArgs e)
-            //przycisk do wyszukiwania 
+        //przycisk do wyszukiwania 
+        {
+
+        }
+
+        private void Konsultant_Load(object sender, EventArgs e)
         {
 
         }

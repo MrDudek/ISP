@@ -38,12 +38,12 @@
             panele = new Label();
             panel3 = new Panel();
             buttonnewfaktura = new MaterialSkin.Controls.MaterialButton();
-            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             glowna_nazwa = new Label();
             panel1 = new Panel();
             findbox = new MaterialSkin.Controls.MaterialTextBox2();
             findusername = new MaterialSkin.Controls.MaterialLabel();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             tabelka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
@@ -59,12 +59,12 @@
             listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
             listauserow.Location = new Point(11, 17);
             listauserow.Name = "listauserow";
-            listauserow.Size = new Size(209, 25);
+            listauserow.Size = new Size(0, 25);
             listauserow.TabIndex = 0;
-            listauserow.Text = "Wyniki Wyszukiwania";
             // 
             // tabelka
             // 
+            tabelka.Controls.Add(materialLabel1);
             tabelka.Controls.Add(dataGridView1);
             tabelka.Controls.Add(listauserow);
             tabelka.Location = new Point(322, 271);
@@ -147,21 +147,14 @@
             buttonnewfaktura.UseVisualStyleBackColor = true;
             buttonnewfaktura.Click += buttonnewfaktura_Click;
             // 
-            // panel2
-            // 
-            panel2.Location = new Point(349, 129);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(8, 8);
-            panel2.TabIndex = 7;
-            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.exit;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(1216, 16);
+            pictureBox1.Location = new Point(1235, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(26, 38);
+            pictureBox1.Size = new Size(17, 24);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -229,6 +222,18 @@
             findusername.TabIndex = 12;
             findusername.Text = "Wpisz żądaną fraze i kliknij Szukaj Użytkownika";
             // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(39, 17);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(152, 19);
+            materialLabel1.TabIndex = 13;
+            materialLabel1.Text = "Wyniki wyszukiwania";
+            // 
             // Konsultant
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -238,11 +243,11 @@
             Controls.Add(findbox);
             Controls.Add(tabelka);
             Controls.Add(panel3);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Konsultant";
             Text = "Konsultant";
+            Load += Konsultant_Load;
             tabelka.ResumeLayout(false);
             tabelka.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -267,12 +272,12 @@
         private PictureBox refresh;
         private Label panele;
         private Panel panel3;
-        private Panel panel2;
         private PictureBox pictureBox1;
         private Label glowna_nazwa;
         private Panel panel1;
         private MaterialSkin.Controls.MaterialButton buttonnewfaktura;
         private MaterialSkin.Controls.MaterialTextBox2 findbox;
         private MaterialSkin.Controls.MaterialLabel findusername;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }

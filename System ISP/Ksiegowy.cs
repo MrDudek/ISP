@@ -26,8 +26,8 @@ namespace System_ISP
         //przycisk dodawania nowej faktury
 
         {
-            NowaFakturaForm nowaFaktura = new NowaFakturaForm();
-            nowaFaktura.ShowDialog();
+            faktury oknoFaktury = new faktury();
+            oknoFaktury.Show();
         }
 
         private void buttongeneratefaktura_Click(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace System_ISP
         private void refresh_Click(object sender, EventArgs e)
         //przycisk odswiezania trzeba ogarnac tabelki i dopisac dopiero odswiezanie
         {
-            
+
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -93,6 +93,11 @@ namespace System_ISP
             Form1 loginForm = new Form1();
             loginForm.Show();
             this.Close();
+        }
+
+        private void panele_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

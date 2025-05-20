@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            listauserow = new Label();
+            Listazgloszen = new Label();
             tabelka = new Panel();
+            polestatusu = new ComboBox();
+            statuszgloszenia = new Label();
+            daneuser = new Label();
+            textBox1 = new TextBox();
+            tresczgloszenia = new TextBox();
+            szczegoly = new Label();
             dataGridView1 = new DataGridView();
-            panelP = new Panel();
-            panelsrodkowy = new Panel();
-            panelL = new Panel();
             toolTip1 = new ToolTip(components);
             logout = new PictureBox();
-            Rejestracja = new Button();
             refresh = new PictureBox();
-            Ksiegowy = new Button();
-            button1 = new Button();
             panele = new Label();
-            Konsultant = new Button();
             panel3 = new Panel();
+            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            save = new MaterialSkin.Controls.MaterialButton();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            data = new DateTimePicker();
-            glowna_nazwa = new Label();
             panel1 = new Panel();
+            label1 = new Label();
             tabelka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
@@ -58,53 +58,98 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // listauserow
+            // Listazgloszen
             // 
-            listauserow.AutoSize = true;
-            listauserow.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listauserow.Location = new Point(15, 15);
-            listauserow.Name = "listauserow";
-            listauserow.Size = new Size(192, 25);
-            listauserow.TabIndex = 0;
-            listauserow.Text = "Lista Użytkownikow";
+            Listazgloszen.AutoSize = true;
+            Listazgloszen.Font = new Font("Tahoma", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            Listazgloszen.Location = new Point(15, 15);
+            Listazgloszen.Name = "Listazgloszen";
+            Listazgloszen.Size = new Size(140, 25);
+            Listazgloszen.TabIndex = 0;
+            Listazgloszen.Text = "Lista zgłoszeń";
+            Listazgloszen.Click += listauserow_Click;
             // 
             // tabelka
             // 
+            tabelka.Controls.Add(polestatusu);
+            tabelka.Controls.Add(statuszgloszenia);
+            tabelka.Controls.Add(daneuser);
+            tabelka.Controls.Add(textBox1);
+            tabelka.Controls.Add(tresczgloszenia);
+            tabelka.Controls.Add(szczegoly);
             tabelka.Controls.Add(dataGridView1);
-            tabelka.Controls.Add(listauserow);
-            tabelka.Location = new Point(322, 355);
+            tabelka.Controls.Add(Listazgloszen);
+            tabelka.Location = new Point(322, 129);
             tabelka.Name = "tabelka";
-            tabelka.Size = new Size(930, 362);
+            tabelka.Size = new Size(920, 588);
             tabelka.TabIndex = 10;
+            // 
+            // polestatusu
+            // 
+            polestatusu.FormattingEnabled = true;
+            polestatusu.Location = new Point(654, 332);
+            polestatusu.Name = "polestatusu";
+            polestatusu.Size = new Size(207, 23);
+            polestatusu.TabIndex = 7;
+            polestatusu.SelectedIndexChanged += polestatusu_SelectedIndexChanged;
+            // 
+            // statuszgloszenia
+            // 
+            statuszgloszenia.AutoSize = true;
+            statuszgloszenia.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            statuszgloszenia.Location = new Point(644, 292);
+            statuszgloszenia.Name = "statuszgloszenia";
+            statuszgloszenia.Size = new Size(273, 28);
+            statuszgloszenia.TabIndex = 6;
+            statuszgloszenia.Text = "Status zgłoszenia (do wyboru)";
+            // 
+            // daneuser
+            // 
+            daneuser.AutoSize = true;
+            daneuser.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            daneuser.Location = new Point(324, 292);
+            daneuser.Name = "daneuser";
+            daneuser.Size = new Size(120, 28);
+            daneuser.TabIndex = 5;
+            daneuser.Text = "Dane klienta";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(324, 323);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(308, 247);
+            textBox1.TabIndex = 4;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // tresczgloszenia
+            // 
+            tresczgloszenia.Location = new Point(11, 323);
+            tresczgloszenia.Multiline = true;
+            tresczgloszenia.Name = "tresczgloszenia";
+            tresczgloszenia.Size = new Size(294, 244);
+            tresczgloszenia.TabIndex = 3;
+            tresczgloszenia.TextChanged += tresczgloszenia_TextChanged;
+            // 
+            // szczegoly
+            // 
+            szczegoly.AutoSize = true;
+            szczegoly.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            szczegoly.Location = new Point(8, 292);
+            szczegoly.Name = "szczegoly";
+            szczegoly.Size = new Size(297, 28);
+            szczegoly.TabIndex = 2;
+            szczegoly.Text = "Szczegóły wybranego zgłoszenia";
+            szczegoly.Click += szczegoly_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(11, 45);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(913, 313);
+            dataGridView1.Size = new Size(906, 237);
             dataGridView1.TabIndex = 1;
-            // 
-            // panelP
-            // 
-            panelP.Location = new Point(914, 141);
-            panelP.Name = "panelP";
-            panelP.Size = new Size(253, 190);
-            panelP.TabIndex = 11;
-            // 
-            // panelsrodkowy
-            // 
-            panelsrodkowy.Location = new Point(619, 141);
-            panelsrodkowy.Name = "panelsrodkowy";
-            panelsrodkowy.Size = new Size(253, 190);
-            panelsrodkowy.TabIndex = 12;
-            // 
-            // panelL
-            // 
-            panelL.Location = new Point(343, 141);
-            panelL.Name = "panelL";
-            panelL.Size = new Size(253, 190);
-            panelL.TabIndex = 9;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // logout
             // 
@@ -118,19 +163,7 @@
             logout.TabIndex = 4;
             logout.TabStop = false;
             toolTip1.SetToolTip(logout, "Wyloguj z systemu");
-            // 
-            // Rejestracja
-            // 
-            Rejestracja.BackColor = Color.DarkTurquoise;
-            Rejestracja.BackgroundImageLayout = ImageLayout.None;
-            Rejestracja.FlatStyle = FlatStyle.Flat;
-            Rejestracja.Font = new Font("Arial Black", 10F, FontStyle.Bold);
-            Rejestracja.Location = new Point(12, 457);
-            Rejestracja.Name = "Rejestracja";
-            Rejestracja.Size = new Size(297, 59);
-            Rejestracja.TabIndex = 5;
-            Rejestracja.Text = "Rejestracja nowych uzytkownikow";
-            Rejestracja.UseVisualStyleBackColor = false;
+            logout.Click += logout_Click;
             // 
             // refresh
             // 
@@ -141,71 +174,71 @@
             refresh.Size = new Size(57, 50);
             refresh.TabIndex = 2;
             refresh.TabStop = false;
-            // 
-            // Ksiegowy
-            // 
-            Ksiegowy.BackColor = Color.DarkTurquoise;
-            Ksiegowy.BackgroundImageLayout = ImageLayout.None;
-            Ksiegowy.FlatStyle = FlatStyle.Flat;
-            Ksiegowy.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Ksiegowy.Location = new Point(64, 268);
-            Ksiegowy.Name = "Ksiegowy";
-            Ksiegowy.Size = new Size(194, 59);
-            Ksiegowy.TabIndex = 3;
-            Ksiegowy.Text = "Księgowy";
-            Ksiegowy.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.DarkTurquoise;
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            button1.Location = new Point(64, 168);
-            button1.Name = "button1";
-            button1.Size = new Size(194, 59);
-            button1.TabIndex = 2;
-            button1.Text = "Serwisant";
-            button1.UseVisualStyleBackColor = false;
+            refresh.Click += refresh_Click;
             // 
             // panele
             // 
             panele.AutoSize = true;
             panele.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            panele.Location = new Point(12, 18);
+            panele.Location = new Point(42, 24);
             panele.Name = "panele";
-            panele.Size = new Size(297, 23);
+            panele.Size = new Size(227, 23);
             panele.TabIndex = 1;
-            panele.Text = "Dostępne Panele do zarządzania";
-            // 
-            // Konsultant
-            // 
-            Konsultant.BackColor = Color.DarkTurquoise;
-            Konsultant.BackgroundImageLayout = ImageLayout.None;
-            Konsultant.FlatStyle = FlatStyle.Flat;
-            Konsultant.Font = new Font("Arial Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            Konsultant.Location = new Point(64, 78);
-            Konsultant.Name = "Konsultant";
-            Konsultant.Size = new Size(194, 59);
-            Konsultant.TabIndex = 0;
-            Konsultant.Text = "Konsultant";
-            Konsultant.UseVisualStyleBackColor = false;
+            panele.Text = "Przyciski do zarządzania";
             // 
             // panel3
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
-            panel3.Controls.Add(Rejestracja);
+            panel3.Controls.Add(materialButton1);
+            panel3.Controls.Add(save);
             panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
-            panel3.Controls.Add(Ksiegowy);
-            panel3.Controls.Add(button1);
             panel3.Controls.Add(panele);
-            panel3.Controls.Add(Konsultant);
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(0, 123);
             panel3.Name = "panel3";
             panel3.Size = new Size(316, 606);
             panel3.TabIndex = 8;
+            // 
+            // materialButton1
+            // 
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.Location = new Point(42, 135);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(237, 36);
+            materialButton1.TabIndex = 11;
+            materialButton1.Text = "Zakończ edycje zgłoszenia";
+            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
+            materialButton1.Click += materialButton1_Click;
+            // 
+            // save
+            // 
+            save.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            save.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            save.Depth = 0;
+            save.HighEmphasis = true;
+            save.Icon = null;
+            save.Location = new Point(42, 76);
+            save.Margin = new Padding(4, 6, 4, 6);
+            save.MouseState = MaterialSkin.MouseState.HOVER;
+            save.Name = "save";
+            save.NoAccentTextColor = Color.Empty;
+            save.Size = new Size(222, 36);
+            save.TabIndex = 10;
+            save.Text = "Zapisz Zmiany zgłoszenia";
+            save.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            save.UseAccentColor = false;
+            save.UseVisualStyleBackColor = true;
+            save.Click += save_Click;
             // 
             // panel2
             // 
@@ -219,35 +252,18 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.exit;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(1216, 16);
+            pictureBox1.Location = new Point(1236, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(26, 38);
+            pictureBox1.Size = new Size(16, 20);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
-            // 
-            // data
-            // 
-            data.Location = new Point(12, 16);
-            data.Name = "data";
-            data.Size = new Size(200, 23);
-            data.TabIndex = 4;
-            // 
-            // glowna_nazwa
-            // 
-            glowna_nazwa.AutoSize = true;
-            glowna_nazwa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            glowna_nazwa.Location = new Point(349, 17);
-            glowna_nazwa.Name = "glowna_nazwa";
-            glowna_nazwa.Size = new Size(332, 21);
-            glowna_nazwa.TabIndex = 1;
-            glowna_nazwa.Text = "Witaj Administratorze w swoim królestwie";
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(data);
-            panel1.Controls.Add(glowna_nazwa);
             panel1.Cursor = Cursors.Hand;
             panel1.Dock = DockStyle.Top;
             panel1.ForeColor = SystemColors.ControlText;
@@ -256,15 +272,22 @@
             panel1.Size = new Size(1264, 123);
             panel1.TabIndex = 6;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label1.Location = new Point(256, 38);
+            label1.Name = "label1";
+            label1.Size = new Size(683, 37);
+            label1.TabIndex = 5;
+            label1.Text = "Witaj w panelu działań Serwisanta czuj sie jak u sb :)";
+            // 
             // Serwisant
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 729);
             Controls.Add(tabelka);
-            Controls.Add(panelP);
-            Controls.Add(panelsrodkowy);
-            Controls.Add(panelL);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -286,25 +309,25 @@
 
         #endregion
 
-        private Label listauserow;
+        private Label Listazgloszen;
         private Panel tabelka;
         private DataGridView dataGridView1;
-        private Panel panelP;
-        private Panel panelsrodkowy;
-        private Panel panelL;
         private ToolTip toolTip1;
         private PictureBox logout;
-        private Button Rejestracja;
         private PictureBox refresh;
-        private Button Ksiegowy;
-        private Button button1;
         private Label panele;
-        private Button Konsultant;
         private Panel panel3;
         private Panel panel2;
         private PictureBox pictureBox1;
-        private DateTimePicker data;
-        private Label glowna_nazwa;
         private Panel panel1;
+        private MaterialSkin.Controls.MaterialButton save;
+        private Label szczegoly;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private TextBox tresczgloszenia;
+        private ComboBox polestatusu;
+        private Label statuszgloszenia;
+        private Label daneuser;
+        private TextBox textBox1;
+        private Label label1;
     }
 }

@@ -85,11 +85,12 @@
             // 
             panele.AutoSize = true;
             panele.Font = new Font("Arial Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            panele.Location = new Point(12, 17);
+            panele.Location = new Point(41, 27);
             panele.Name = "panele";
-            panele.Size = new Size(297, 23);
+            panele.Size = new Size(227, 23);
             panele.TabIndex = 1;
-            panele.Text = "Dostępne Panele do zarządzania";
+            panele.Text = "Przyciski do zarządzania";
+            panele.Click += panele_Click;
             // 
             // panel3
             // 
