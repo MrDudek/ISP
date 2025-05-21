@@ -240,7 +240,7 @@
             wersjaapp.Name = "wersjaapp";
             wersjaapp.Size = new Size(90, 19);
             wersjaapp.TabIndex = 10;
-            wersjaapp.Text = "Wersja v.0.11";
+            wersjaapp.Text = "Wersja v.0.30";
             wersjaapp.Click += wersjaapp_Click;
             // 
             // Form1

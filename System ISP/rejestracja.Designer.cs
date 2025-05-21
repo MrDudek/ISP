@@ -49,6 +49,8 @@
             materialTextBox25 = new MaterialSkin.Controls.MaterialTextBox2();
             materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            comboBox2 = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -90,9 +92,9 @@
             // 
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "admin", "konsultant", "user", "serwisant", "ksiegowy" });
-            comboBox1.Location = new Point(500, 631);
+            comboBox1.Location = new Point(500, 618);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
+            comboBox1.Size = new Size(175, 23);
             comboBox1.TabIndex = 12;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -388,7 +390,7 @@
             materialLabel7.BackColor = Color.Transparent;
             materialLabel7.Depth = 0;
             materialLabel7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel7.Location = new Point(500, 604);
+            materialLabel7.Location = new Point(500, 596);
             materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
             materialLabel7.Size = new Size(175, 19);
@@ -403,7 +405,7 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(765, 623);
+            materialButton1.Location = new Point(629, 650);
             materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
@@ -416,12 +418,38 @@
             materialButton1.UseVisualStyleBackColor = true;
             materialButton1.Click += materialButton1_Click;
             // 
+            // materialLabel8
+            // 
+            materialLabel8.AutoSize = true;
+            materialLabel8.BackColor = Color.Transparent;
+            materialLabel8.Depth = 0;
+            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel8.Location = new Point(700, 596);
+            materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel8.Name = "materialLabel8";
+            materialLabel8.Size = new Size(104, 19);
+            materialLabel8.TabIndex = 23;
+            materialLabel8.Text = "Wybierz usługi";
+            materialLabel8.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "admin", "konsultant", "user", "serwisant", "ksiegowy" });
+            comboBox2.Location = new Point(700, 618);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(240, 23);
+            comboBox2.TabIndex = 24;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
             // rejestracja
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(952, 704);
+            Controls.Add(comboBox2);
+            Controls.Add(materialLabel8);
             Controls.Add(materialButton1);
             Controls.Add(exit);
             Controls.Add(materialLabel7);
@@ -472,5 +500,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private ComboBox comboBox2;
     }
 }
