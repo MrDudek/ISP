@@ -33,8 +33,6 @@
             tabelka = new Panel();
             polestatusu = new ComboBox();
             statuszgloszenia = new Label();
-            daneuser = new Label();
-            textBox1 = new TextBox();
             tresczgloszenia = new TextBox();
             szczegoly = new Label();
             dataGridView1 = new DataGridView();
@@ -49,6 +47,8 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             label1 = new Label();
+            textBox1 = new TextBox();
+            daneuser = new Label();
             tabelka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
@@ -102,25 +102,6 @@
             statuszgloszenia.Size = new Size(273, 28);
             statuszgloszenia.TabIndex = 6;
             statuszgloszenia.Text = "Status zgłoszenia (do wyboru)";
-            // 
-            // daneuser
-            // 
-            daneuser.AutoSize = true;
-            daneuser.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            daneuser.Location = new Point(324, 292);
-            daneuser.Name = "daneuser";
-            daneuser.Size = new Size(120, 28);
-            daneuser.TabIndex = 5;
-            daneuser.Text = "Dane klienta";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(324, 323);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(308, 247);
-            textBox1.TabIndex = 4;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // tresczgloszenia
             // 
@@ -282,6 +263,25 @@
             label1.TabIndex = 5;
             label1.Text = "Witaj w panelu działań Serwisanta czuj sie jak u sb :)";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(324, 323);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(308, 247);
+            textBox1.TabIndex = 4;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // daneuser
+            // 
+            daneuser.AutoSize = true;
+            daneuser.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            daneuser.Location = new Point(324, 292);
+            daneuser.Name = "daneuser";
+            daneuser.Size = new Size(120, 28);
+            daneuser.TabIndex = 5;
+            daneuser.Text = "Dane klienta";
+            // 
             // Serwisant
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -326,8 +326,8 @@
         private TextBox tresczgloszenia;
         private ComboBox polestatusu;
         private Label statuszgloszenia;
+        private Label label1;
         private Label daneuser;
         private TextBox textBox1;
-        private Label label1;
     }
 }

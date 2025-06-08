@@ -35,25 +35,18 @@
             panele = new Label();
             panel3 = new Panel();
             sendfaktura = new MaterialSkin.Controls.MaterialButton();
-            buttongeneratefaktura = new MaterialSkin.Controls.MaterialButton();
             buttonnewfaktura = new MaterialSkin.Controls.MaterialButton();
             pictureBox1 = new PictureBox();
             glowna_nazwa = new Label();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            label2 = new Label();
-            dataGridView2 = new DataGridView();
-            label3 = new Label();
-            dataGridView3 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)refresh).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
             SuspendLayout();
             // 
             // logout
@@ -96,7 +89,6 @@
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
             panel3.Controls.Add(sendfaktura);
-            panel3.Controls.Add(buttongeneratefaktura);
             panel3.Controls.Add(buttonnewfaktura);
             panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
@@ -115,7 +107,7 @@
             sendfaktura.Depth = 0;
             sendfaktura.HighEmphasis = true;
             sendfaktura.Icon = null;
-            sendfaktura.Location = new Point(59, 190);
+            sendfaktura.Location = new Point(59, 118);
             sendfaktura.Margin = new Padding(4, 6, 4, 6);
             sendfaktura.MouseState = MaterialSkin.MouseState.HOVER;
             sendfaktura.Name = "sendfaktura";
@@ -127,26 +119,6 @@
             sendfaktura.UseAccentColor = false;
             sendfaktura.UseVisualStyleBackColor = true;
             sendfaktura.Click += sendfaktura_Click;
-            // 
-            // buttongeneratefaktura
-            // 
-            buttongeneratefaktura.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            buttongeneratefaktura.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            buttongeneratefaktura.Depth = 0;
-            buttongeneratefaktura.HighEmphasis = true;
-            buttongeneratefaktura.Icon = null;
-            buttongeneratefaktura.Location = new Point(59, 133);
-            buttongeneratefaktura.Margin = new Padding(4, 6, 4, 6);
-            buttongeneratefaktura.MouseState = MaterialSkin.MouseState.HOVER;
-            buttongeneratefaktura.Name = "buttongeneratefaktura";
-            buttongeneratefaktura.NoAccentTextColor = Color.Empty;
-            buttongeneratefaktura.Size = new Size(153, 36);
-            buttongeneratefaktura.TabIndex = 10;
-            buttongeneratefaktura.Text = "Generuj fakturę";
-            buttongeneratefaktura.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            buttongeneratefaktura.UseAccentColor = false;
-            buttongeneratefaktura.UseVisualStyleBackColor = true;
-            buttongeneratefaktura.Click += buttongeneratefaktura_Click;
             // 
             // buttonnewfaktura
             // 
@@ -209,7 +181,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(336, 193);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(418, 478);
+            dataGridView1.Size = new Size(916, 478);
             dataGridView1.TabIndex = 9;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -217,61 +189,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(432, 150);
+            label1.Location = new Point(336, 150);
             label1.Name = "label1";
             label1.Size = new Size(207, 28);
             label1.TabIndex = 10;
             label1.Text = "Lista utworzych faktur ";
             label1.Click += label1_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 15F);
-            label2.Location = new Point(808, 150);
-            label2.Name = "label2";
-            label2.Size = new Size(390, 28);
-            label2.TabIndex = 11;
-            label2.Text = "Faktury wygenerowane/czekajce na wysyłke";
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(793, 193);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(418, 216);
-            dataGridView2.TabIndex = 12;
-            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15F);
-            label3.Location = new Point(863, 424);
-            label3.Name = "label3";
-            label3.Size = new Size(255, 28);
-            label3.TabIndex = 13;
-            label3.Text = "Faktury gotowe do wysłania";
-            label3.Click += label3_Click;
-            // 
-            // dataGridView3
-            // 
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(793, 465);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.Size = new Size(418, 206);
-            dataGridView3.TabIndex = 14;
-            dataGridView3.CellContentClick += dataGridView3_CellContentClick;
-            // 
             // Ksiegowy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 729);
-            Controls.Add(dataGridView3);
-            Controls.Add(label3);
-            Controls.Add(dataGridView2);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(panel3);
@@ -287,8 +216,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -309,7 +236,5 @@
         private Label label1;
         private Label label2;
         private DataGridView dataGridView2;
-        private Label label3;
-        private DataGridView dataGridView3;
     }
 }

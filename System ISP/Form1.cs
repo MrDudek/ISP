@@ -76,26 +76,78 @@ namespace System_ISP
 
         }
 
-        private void loginbutton_Click(object sender, EventArgs e)
-        //przycisk logowania
+        private async void loginbutton_Click(object sender, EventArgs e)
         {
             string username = Login.Text.Trim();
             string password = passbox.Text.Trim();
 
-            if (username == "admin" && password == "1234")
+            var client = new HttpClient();
+            var requestData = new
             {
-                MessageBox.Show("✅ Zalogowano jako administrator!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                login = username,
+                password = password
+            };
 
-                Adminmenu panelAdministratora = new Adminmenu();
-                panelAdministratora.Show();
-                this.Hide();
-            }
-            else
+            var content = new StringContent(JsonSerializer.Serialize(requestData), Encoding.UTF8, "application/json");
+
+            try
             {
-                MessageBox.Show("❌ Nieprawidłowy login lub hasło.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                var response = await client.PostAsync("http://localhost:5180/api/Login", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    var loginResponse = JsonSerializer.Deserialize<LoginResponse>(responseBody);
 
+                    if (loginResponse != null && loginResponse.success)
+                    {
+                        //ZAPIS LOGINU I ROLI DO SESJI
+                        Session.LoggedInLogin = username;
+                        Session.LoggedInRole = loginResponse.role;
+                        Session.CurrentLogin = username;
+
+                        MessageBox.Show($"✅ Zalogowano jako {loginResponse.role} ({loginResponse.name})", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        switch (loginResponse.role)
+                        {
+                            case "Admin":
+                                new Adminmenu().Show();
+                                break;
+                            case "Serwisant":
+                                new Serwisant().Show();
+                                break;
+                            case "Księgowy":
+                                new Ksiegowy().Show();
+                                break;
+                            case "Konsultant":
+                                new Konsultant().Show();
+                                break;
+                            case "Klient":
+                                new user().Show(); 
+                                break;
+                            default:
+                                MessageBox.Show("❌ Nieznana rola użytkownika.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                        }
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("❌ Błędne dane logowania.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("❌ Nieprawidłowa odpowiedź serwera.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"❌ Błąd połączenia z API: {ex.Message}", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private void materialTextBox21_Click(object sender, EventArgs e)
         //miejsce do wpisywania hasła
@@ -137,5 +189,11 @@ namespace System_ISP
         {
 
         }
+    }
+    public class LoginResponse
+    {
+        public bool success { get; set; }
+        public string role { get; set; }
+        public string name { get; set; }
     }
 }

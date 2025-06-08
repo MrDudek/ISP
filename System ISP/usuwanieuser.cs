@@ -1,7 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Data;
-using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace System_ISP
@@ -12,152 +13,128 @@ namespace System_ISP
         {
             InitializeComponent();
             EnableDrag(panel1);
+            this.Load += usuwanieuser_Load;
         }
 
-        private void Delete_Click(object sender, EventArgs e)
+        private class User
         {
+            public string login { get; set; }
+            public string imie { get; set; }
+            public string nazwisko { get; set; }
+            public string rola { get; set; }
+            public string typ { get; set; }
 
+            public override string ToString()
+            {
+                return $"{imie} {nazwisko} ({login}) [{typ ?? "brak typu"}]";
+            }
         }
 
-        private void uzytkownicy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // nieużywane, ale zostawione dla designer'a
-        }
+        private List<User> users = new List<User>();
+        private const string ApiBaseUrl = "http://localhost:5180";
 
-        private void usuwanieuser_Load(object sender, EventArgs e)
+        private async void usuwanieuser_Load(object sender, EventArgs e)
         {
             try
             {
                 uzytkownicy.Items.Clear();
                 uzytkownicy.Items.Add("— Wybierz użytkownika —");
-                uzytkownicy.SelectedIndex = 0;
 
-                using (SqlConnection conn = DBConnection.GetConnection())
+                using (HttpClient client = new HttpClient())
                 {
-                    conn.Open();
+                    string url = $"{ApiBaseUrl}/api/Consultant/all-users";
+                    var response = await client.GetAsync(url);
+                    string rawJson = await response.Content.ReadAsStringAsync();
 
-                    // Klienci
-                    string klientQuery = "SELECT Imie, Nazwisko, login, rola FROM dbo.Klient";
-                    using (SqlCommand cmd = new SqlCommand(klientQuery, conn))
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    if (!response.IsSuccessStatusCode)
                     {
-                        while (reader.Read())
-                        {
-                            string imie = reader["Imie"].ToString();
-                            string nazwisko = reader["Nazwisko"].ToString();
-                            string login = reader["login"].ToString();
-                            string rola = reader["rola"].ToString();
-                            uzytkownicy.Items.Add($"{imie} {nazwisko} ({login}) [{rola}]");
-                        }
+                        MessageBox.Show($"❌ Błąd HTTP: {response.StatusCode}");
+                        return;
                     }
 
-                    // Pracownicy
-                    string pracownikQuery = "SELECT imię, nazwisko, login, rola FROM dbo.Pracownik";
-                    using (SqlCommand cmd = new SqlCommand(pracownikQuery, conn))
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    var usersList = JsonSerializer.Deserialize<List<User>>(rawJson, new JsonSerializerOptions
                     {
-                        while (reader.Read())
-                        {
-                            string imie = reader["imię"].ToString();
-                            string nazwisko = reader["nazwisko"].ToString();
-                            string login = reader["login"].ToString();
-                            string rola = reader["rola"].ToString();
-                            uzytkownicy.Items.Add($"{imie} {nazwisko} ({login}) [{rola}]");
-                        }
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    if (usersList == null || usersList.Count == 0)
+                    {
+                        MessageBox.Show("⚠️ Brak użytkowników do wyświetlenia.");
+                        return;
                     }
+
+                    users = usersList;
+
+                    foreach (var user in users)
+                    {
+                        uzytkownicy.Items.Add(user.ToString());
+                    }
+
+                    uzytkownicy.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Błąd podczas ładowania użytkowników:\n" + ex.Message);
+                MessageBox.Show("❌ Błąd pobierania użytkowników:\n" + ex.Message);
             }
         }
 
-
-
-
-        private void exit_Click(object sender, EventArgs e)
+        private async void materialButton1_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void materialLabel1_Click(object sender, EventArgs e)
-        //powiadomienie o usunięciu użytkownika informacyjne
-        {
-
-        }
-
-        private void materialButton1_Click(object sender, EventArgs e)
-        //przycisk do usuwania użytkownika
-        {
-            string selectedItem = uzytkownicy.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(selectedItem) || selectedItem == "— Wybierz użytkownika —")
+            if (uzytkownicy.SelectedIndex <= 0)
             {
                 MessageBox.Show("⚠️ Wybierz użytkownika do usunięcia.");
                 return;
             }
 
-            // Wyciągnięcie loginu z tekstu w formacie: "Jan Kowalski (jkowalski)"
-            int startIndex = selectedItem.LastIndexOf('(');
-            int endIndex = selectedItem.LastIndexOf(')');
+            string selectedText = uzytkownicy.SelectedItem.ToString();
+            User selectedUser = users.Find(u => selectedText.Contains($"({u.login})"));
 
-            if (startIndex == -1 || endIndex == -1 || endIndex <= startIndex)
+            if (selectedUser == null)
             {
-                MessageBox.Show("❌ Nieprawidłowy format danych użytkownika.");
+                MessageBox.Show("❌ Nie udało się znaleźć użytkownika do usunięcia.");
                 return;
             }
 
-            string login = selectedItem.Substring(startIndex + 1, endIndex - startIndex - 1);
+            var confirm = MessageBox.Show(
+                $"Czy na pewno chcesz usunąć użytkownika {selectedUser.login}?",
+                "Potwierdzenie usunięcia",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (confirm != DialogResult.Yes)
+                return;
 
             try
             {
-                SqlConnection conn = DBConnection.GetConnection();
-                conn.Open();
-
-                // Najpierw sprawdź, czy użytkownik istnieje w tabeli Klient
-                string checkClient = "SELECT COUNT(*) FROM dbo.Klient WHERE login = @login";
-                using (SqlCommand cmd = new SqlCommand(checkClient, conn))
+                using (HttpClient client = new HttpClient())
                 {
-                    cmd.Parameters.AddWithValue("@login", login);
-                    int count = (int)cmd.ExecuteScalar();
+                    string deleteUrl = $"{ApiBaseUrl}/api/RegisterUser/delete/{selectedUser.login.Trim()}";
+                    var response = await client.DeleteAsync(deleteUrl);
 
-                    string deleteQuery;
-                    if (count > 0)
+                    if (response.IsSuccessStatusCode)
                     {
-                        deleteQuery = "DELETE FROM dbo.Klient WHERE login = @login";
+                        MessageBox.Show("✅ Użytkownik został usunięty.");
+                        uzytkownicy.Items.Remove(selectedText);
+                        users.Remove(selectedUser);
+                        uzytkownicy.SelectedIndex = 0;
                     }
                     else
                     {
-                        deleteQuery = "DELETE FROM dbo.Pracownik WHERE login = @login";
-                    }
-
-                    using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, conn))
-                    {
-                        deleteCmd.Parameters.AddWithValue("@login", login);
-                        int affectedRows = deleteCmd.ExecuteNonQuery();
-
-                        if (affectedRows > 0)
-                        {
-                            MessageBox.Show("✅ Użytkownik został usunięty.");
-                            uzytkownicy.Items.Remove(selectedItem);
-                        }
-                        else
-                        {
-                            MessageBox.Show("❌ Użytkownik nie został znaleziony.");
-                        }
+                        string error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"❌ Błąd usuwania użytkownika: {response.StatusCode}\n{error}");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Błąd podczas usuwania:\n" + ex.Message);
+                MessageBox.Show("❌ Wyjątek API:\n" + ex.Message);
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void exit_Click(object sender, EventArgs e) => this.Close();
+        private void uzytkownicy_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void materialLabel1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
     }
 }

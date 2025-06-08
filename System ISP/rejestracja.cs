@@ -1,14 +1,15 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
 
 namespace System_ISP
 {
     public partial class rejestracja : BaseForm
     {
-        // Klasa modelu wewnątrz tej samej klasy (jeśli nie masz osobnego pliku)
         private class Usluga
         {
             public int Id { get; set; }
@@ -49,10 +50,7 @@ namespace System_ISP
             comboBox2.SelectedIndex = 0;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
-
-        private void materialButton1_Click(object sender, EventArgs e)
+        private async void materialButton1_Click(object sender, EventArgs e)
         {
             string login = Login.Text.Trim();
             string haslo = materialTextBox21.Text.Trim();
@@ -60,98 +58,82 @@ namespace System_ISP
             string nazwisko = materialTextBox23.Text.Trim();
             string mail = materialTextBox24.Text.Trim();
             string tel = materialTextBox25.Text.Trim();
+            string pesel = materialTextBox26.Text.Trim(); 
             string rola = comboBox1.SelectedItem?.ToString();
             Usluga usluga = comboBox2.SelectedItem as Usluga;
 
             if (string.IsNullOrEmpty(rola) || rola == "— Wybierz rolę —"
                 || string.IsNullOrEmpty(login) || string.IsNullOrEmpty(haslo)
                 || string.IsNullOrEmpty(imie) || string.IsNullOrEmpty(nazwisko)
-                || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(tel)
-                || usluga == null || usluga.Id == 0)
+                || string.IsNullOrEmpty(mail) || string.IsNullOrEmpty(tel) || string.IsNullOrEmpty(pesel))
             {
-                MessageBox.Show("Uzupełnij wszystkie pola!");
+                MessageBox.Show("⚠️ Uzupełnij wszystkie pola!");
                 return;
             }
 
-            SqlConnection conn = DBConnection.GetConnection();
+            int idRola = rola switch
+            {
+                "Admin" => 1,
+                "Konsultant" => 2,
+                "Serwisant" => 3,
+                "Ksiegowy" => 4,
+                "Klient" => 5,
+                _ => 0
+            };
+
+            int idUsluga = usluga?.Id ?? 0;
+
+            var userData = new
+            {
+                login = login,
+                email = mail,
+                pass = haslo,
+                imie = imie,
+                nazwisko = nazwisko,
+                telefon = tel,
+                wiek = 0,
+                idUsluga = idUsluga,
+                idRola = idRola,
+                pesel = pesel
+            };
 
             try
             {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                string checkLogin = "SELECT COUNT(*) FROM dbo.Klient WHERE login = @login " +
-                                    "UNION ALL " +
-                                    "SELECT COUNT(*) FROM dbo.Pracownik WHERE login = @login";
-
-                using (SqlCommand checkCmd = new SqlCommand(checkLogin, conn))
+                using (var client = new HttpClient())
                 {
-                    checkCmd.Parameters.AddWithValue("@login", login);
-                    int totalMatches = 0;
+                    string json = JsonSerializer.Serialize(userData);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    using (SqlDataReader reader = checkCmd.ExecuteReader())
+                    var response = await client.PostAsync("http://localhost:5180/api/RegisterUser", content);
+                    if (response.IsSuccessStatusCode)
                     {
-                        while (reader.Read())
-                            totalMatches += reader.GetInt32(0);
+                        MessageBox.Show("✅ Rejestracja zakończona sukcesem.");
+                        Login.Clear();
+                        materialTextBox21.Clear();
+                        materialTextBox22.Clear();
+                        materialTextBox23.Clear();
+                        materialTextBox24.Clear();
+                        materialTextBox25.Clear();
+                        materialTextBox26.Clear();
+                        comboBox1.SelectedIndex = 0;
+                        comboBox2.SelectedIndex = 0;
                     }
-
-                    if (totalMatches > 0)
+                    else
                     {
-                        MessageBox.Show("⚠️ Login już istnieje.");
-                        return;
+                        string res = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"❌ Błąd rejestracji ({response.StatusCode}):\n{res}");
                     }
-                }
-
-                string query;
-
-                if (rola.ToLower() == "klient")
-                {
-                    query = "INSERT INTO dbo.Klient (login, pass, rola, Imie, Nazwisko, Email, Telefon, idUsluga) " +
-                            "VALUES (@login, @haslo, @rola, @imie, @nazwisko, @email, @telefon, @idUsluga)";
-                }
-                else
-                {
-                    query = "INSERT INTO dbo.Pracownik (login, pass, rola, imię, nazwisko, email, telefon) " +
-                            "VALUES (@login, @haslo, @rola, @imie, @nazwisko, @email, @telefon)";
-                }
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@login", login);
-                    cmd.Parameters.AddWithValue("@haslo", haslo);
-                    cmd.Parameters.AddWithValue("@rola", rola);
-                    cmd.Parameters.AddWithValue("@imie", imie);
-                    cmd.Parameters.AddWithValue("@nazwisko", nazwisko);
-                    cmd.Parameters.AddWithValue("@email", mail);
-                    cmd.Parameters.AddWithValue("@telefon", tel);
-
-                    if (rola.ToLower() == "klient")
-                        cmd.Parameters.AddWithValue("@idUsluga", usluga.Id);
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("✅ Użytkownik dodany!");
-
-                    Login.Clear();
-                    materialTextBox21.Clear();
-                    materialTextBox22.Clear();
-                    materialTextBox23.Clear();
-                    materialTextBox24.Clear();
-                    materialTextBox25.Clear();
-                    comboBox1.SelectedIndex = 0;
-                    comboBox2.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Błąd: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
+                MessageBox.Show("❌ Błąd połączenia z API:\n" + ex.Message);
             }
         }
 
-        // Pozostałe puste eventy (zostawiłem jak miałeś):
+        // Puste eventy UI
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
         private void nazwa_Click(object sender, EventArgs e) { }
         private void login_pass_TextChanged(object sender, EventArgs e) { }
         private void button_login_Click(object sender, EventArgs e) { }
@@ -172,5 +154,7 @@ namespace System_ISP
         private void materialTextBox23_Click(object sender, EventArgs e) { }
         private void materialTextBox24_Click(object sender, EventArgs e) { }
         private void materialTextBox25_Click(object sender, EventArgs e) { }
+        private void materialTextBox26_Click(object sender, EventArgs e) { }
+        private void materialLabel9_Click(object sender, EventArgs e) { }
     }
 }

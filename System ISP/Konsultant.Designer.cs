@@ -31,10 +31,10 @@
             components = new System.ComponentModel.Container();
             listauserow = new Label();
             tabelka = new Panel();
+            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             dataGridView1 = new DataGridView();
             toolTip1 = new ToolTip(components);
             logout = new PictureBox();
-            refresh = new PictureBox();
             panele = new Label();
             panel3 = new Panel();
             buttonnewfaktura = new MaterialSkin.Controls.MaterialButton();
@@ -43,11 +43,9 @@
             panel1 = new Panel();
             findbox = new MaterialSkin.Controls.MaterialTextBox2();
             findusername = new MaterialSkin.Controls.MaterialLabel();
-            materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             tabelka.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)refresh).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -72,6 +70,18 @@
             tabelka.Size = new Size(930, 446);
             tabelka.TabIndex = 10;
             // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(39, 17);
+            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(152, 19);
+            materialLabel1.TabIndex = 13;
+            materialLabel1.Text = "Wyniki wyszukiwania";
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -94,16 +104,6 @@
             toolTip1.SetToolTip(logout, "Wyloguj z systemu");
             logout.Click += logout_Click;
             // 
-            // refresh
-            // 
-            refresh.BackgroundImage = Properties.Resources.Refresh_icon;
-            refresh.BackgroundImageLayout = ImageLayout.Stretch;
-            refresh.Location = new Point(252, 544);
-            refresh.Name = "refresh";
-            refresh.Size = new Size(57, 50);
-            refresh.TabIndex = 2;
-            refresh.TabStop = false;
-            // 
             // panele
             // 
             panele.AutoSize = true;
@@ -118,7 +118,6 @@
             // 
             panel3.BackColor = SystemColors.GradientActiveCaption;
             panel3.Controls.Add(buttonnewfaktura);
-            panel3.Controls.Add(refresh);
             panel3.Controls.Add(logout);
             panel3.Controls.Add(panele);
             panel3.Dock = DockStyle.Left;
@@ -209,6 +208,7 @@
             findbox.TextAlign = HorizontalAlignment.Left;
             findbox.TrailingIcon = null;
             findbox.UseSystemPasswordChar = false;
+            findbox.Click += findbox_Click;
             // 
             // findusername
             // 
@@ -221,18 +221,6 @@
             findusername.Size = new Size(340, 19);
             findusername.TabIndex = 12;
             findusername.Text = "Wpisz żądaną fraze i kliknij Szukaj Użytkownika";
-            // 
-            // materialLabel1
-            // 
-            materialLabel1.AutoSize = true;
-            materialLabel1.Depth = 0;
-            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(39, 17);
-            materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(152, 19);
-            materialLabel1.TabIndex = 13;
-            materialLabel1.Text = "Wyniki wyszukiwania";
             // 
             // Konsultant
             // 
@@ -252,7 +240,6 @@
             tabelka.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)logout).EndInit();
-            ((System.ComponentModel.ISupportInitialize)refresh).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -269,7 +256,6 @@
         private DataGridView dataGridView1;
         private ToolTip toolTip1;
         private PictureBox logout;
-        private PictureBox refresh;
         private Label panele;
         private Panel panel3;
         private PictureBox pictureBox1;

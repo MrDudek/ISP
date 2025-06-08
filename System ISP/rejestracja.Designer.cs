@@ -51,6 +51,8 @@
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             comboBox2 = new ComboBox();
+            materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            materialTextBox26 = new MaterialSkin.Controls.MaterialTextBox2();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -117,7 +119,7 @@
             nametekst.BackColor = Color.Transparent;
             nametekst.Depth = 0;
             nametekst.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            nametekst.Location = new Point(500, 65);
+            nametekst.Location = new Point(491, 45);
             nametekst.MouseState = MaterialSkin.MouseState.HOVER;
             nametekst.Name = "nametekst";
             nametekst.Size = new Size(394, 19);
@@ -132,7 +134,7 @@
             materialLabel1.BackColor = Color.Transparent;
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(500, 103);
+            materialLabel1.Location = new Point(500, 73);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(143, 19);
@@ -149,7 +151,7 @@
             Login.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             Login.HideSelection = true;
             Login.LeadingIcon = null;
-            Login.Location = new Point(500, 125);
+            Login.Location = new Point(500, 95);
             Login.MaxLength = 32767;
             Login.MouseState = MaterialSkin.MouseState.OUT;
             Login.Name = "Login";
@@ -175,7 +177,7 @@
             materialLabel2.BackColor = Color.Transparent;
             materialLabel2.Depth = 0;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(500, 188);
+            materialLabel2.Location = new Point(500, 146);
             materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(42, 19);
@@ -192,7 +194,7 @@
             materialTextBox21.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox21.HideSelection = true;
             materialTextBox21.LeadingIcon = null;
-            materialTextBox21.Location = new Point(500, 210);
+            materialTextBox21.Location = new Point(500, 168);
             materialTextBox21.MaxLength = 32767;
             materialTextBox21.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox21.Name = "materialTextBox21";
@@ -218,7 +220,7 @@
             materialLabel3.BackColor = Color.Transparent;
             materialLabel3.Depth = 0;
             materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(500, 274);
+            materialLabel3.Location = new Point(500, 219);
             materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel3.Name = "materialLabel3";
             materialLabel3.Size = new Size(31, 19);
@@ -235,7 +237,7 @@
             materialTextBox22.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox22.HideSelection = true;
             materialTextBox22.LeadingIcon = null;
-            materialTextBox22.Location = new Point(500, 296);
+            materialTextBox22.Location = new Point(500, 241);
             materialTextBox22.MaxLength = 32767;
             materialTextBox22.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox22.Name = "materialTextBox22";
@@ -261,7 +263,7 @@
             materialLabel4.BackColor = Color.Transparent;
             materialLabel4.Depth = 0;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(500, 347);
+            materialLabel4.Location = new Point(500, 292);
             materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(70, 19);
@@ -278,7 +280,7 @@
             materialTextBox23.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox23.HideSelection = true;
             materialTextBox23.LeadingIcon = null;
-            materialTextBox23.Location = new Point(500, 369);
+            materialTextBox23.Location = new Point(500, 314);
             materialTextBox23.MaxLength = 32767;
             materialTextBox23.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox23.Name = "materialTextBox23";
@@ -304,7 +306,7 @@
             materialLabel5.BackColor = Color.Transparent;
             materialLabel5.Depth = 0;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(500, 432);
+            materialLabel5.Location = new Point(501, 365);
             materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(41, 19);
@@ -321,7 +323,7 @@
             materialTextBox24.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox24.HideSelection = true;
             materialTextBox24.LeadingIcon = null;
-            materialTextBox24.Location = new Point(500, 454);
+            materialTextBox24.Location = new Point(500, 387);
             materialTextBox24.MaxLength = 32767;
             materialTextBox24.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox24.Name = "materialTextBox24";
@@ -347,7 +349,7 @@
             materialLabel6.BackColor = Color.Transparent;
             materialLabel6.Depth = 0;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(500, 514);
+            materialLabel6.Location = new Point(501, 438);
             materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(110, 19);
@@ -364,7 +366,7 @@
             materialTextBox25.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBox25.HideSelection = true;
             materialTextBox25.LeadingIcon = null;
-            materialTextBox25.Location = new Point(500, 536);
+            materialTextBox25.Location = new Point(500, 460);
             materialTextBox25.MaxLength = 32767;
             materialTextBox25.MouseState = MaterialSkin.MouseState.OUT;
             materialTextBox25.Name = "materialTextBox25";
@@ -442,12 +444,58 @@
             comboBox2.TabIndex = 24;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
+            // materialLabel9
+            // 
+            materialLabel9.AutoSize = true;
+            materialLabel9.BackColor = Color.Transparent;
+            materialLabel9.Depth = 0;
+            materialLabel9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel9.Location = new Point(500, 511);
+            materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            materialLabel9.Name = "materialLabel9";
+            materialLabel9.Size = new Size(39, 19);
+            materialLabel9.TabIndex = 25;
+            materialLabel9.Text = "Pesel";
+            materialLabel9.TextAlign = ContentAlignment.TopCenter;
+            materialLabel9.Click += materialLabel9_Click;
+            // 
+            // materialTextBox26
+            // 
+            materialTextBox26.AnimateReadOnly = false;
+            materialTextBox26.BackgroundImageLayout = ImageLayout.None;
+            materialTextBox26.CharacterCasing = CharacterCasing.Normal;
+            materialTextBox26.Depth = 0;
+            materialTextBox26.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBox26.HideSelection = true;
+            materialTextBox26.LeadingIcon = null;
+            materialTextBox26.Location = new Point(500, 533);
+            materialTextBox26.MaxLength = 32767;
+            materialTextBox26.MouseState = MaterialSkin.MouseState.OUT;
+            materialTextBox26.Name = "materialTextBox26";
+            materialTextBox26.PasswordChar = '\0';
+            materialTextBox26.PrefixSuffixText = null;
+            materialTextBox26.ReadOnly = false;
+            materialTextBox26.RightToLeft = RightToLeft.No;
+            materialTextBox26.SelectedText = "";
+            materialTextBox26.SelectionLength = 0;
+            materialTextBox26.SelectionStart = 0;
+            materialTextBox26.ShortcutsEnabled = true;
+            materialTextBox26.Size = new Size(440, 48);
+            materialTextBox26.TabIndex = 26;
+            materialTextBox26.TabStop = false;
+            materialTextBox26.TextAlign = HorizontalAlignment.Left;
+            materialTextBox26.TrailingIcon = null;
+            materialTextBox26.UseSystemPasswordChar = false;
+            materialTextBox26.Click += materialTextBox26_Click;
+            // 
             // rejestracja
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(952, 704);
+            Controls.Add(materialTextBox26);
+            Controls.Add(materialLabel9);
             Controls.Add(comboBox2);
             Controls.Add(materialLabel8);
             Controls.Add(materialButton1);
@@ -502,5 +550,7 @@
         private PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private ComboBox comboBox2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel9;
+        private MaterialSkin.Controls.MaterialTextBox2 materialTextBox26;
     }
 }

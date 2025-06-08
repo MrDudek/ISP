@@ -37,6 +37,7 @@
             textBox1 = new TextBox();
             label1 = new Label();
             textBox2 = new TextBox();
+            materialButton2 = new MaterialSkin.Controls.MaterialButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -135,11 +136,32 @@
             textBox2.TabIndex = 21;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
+            // materialButton2
+            // 
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.Location = new Point(522, 402);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(231, 36);
+            materialButton2.TabIndex = 22;
+            materialButton2.Text = "Dodaj zgłoszenie lokalnie";
+            materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
+            materialButton2.Click += materialButton2_Click;
+            // 
             // dodajzglosznie
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(953, 581);
+            Controls.Add(materialButton2);
             Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(textBox1);
@@ -167,5 +189,6 @@
         private TextBox textBox1;
         private Label label1;
         private TextBox textBox2;
+        private MaterialSkin.Controls.MaterialButton materialButton2;
     }
 }
